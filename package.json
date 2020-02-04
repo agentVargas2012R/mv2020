@@ -1,0 +1,25 @@
+{
+  "name": "portfolio-2020",
+  "version": "1.0.0",
+  "description": "My Personal Site",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "Michael",
+    "Vargas",
+    "Mike",
+    "Vargas",
+    "Surfer",
+    "Traveler",
+    "Entrepreneuer",
+    "Developer",
+    "Architect",
+    "Conference",
+    "Father",
+    "Husband"
+  ],
+  "author": "Michael.Vargas@intellipointcorp.com",
+  "license": "ISC"
+}
