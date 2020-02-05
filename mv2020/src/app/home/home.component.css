@@ -28,7 +28,9 @@ body {
   }
 
   .backdrop {
-    background: white;
+    background: linear-gradient(white, white);
+    border-radius: 5px;
+    padding: 2%;
   }
 }
 h1 {
@@ -54,6 +56,10 @@ h5 {
     background-size: contain !important;
   }
 
+  .description {
+    color: white;
+  }
+
   .padding-top-25 {
     padding-top: 55%;
   }
@@ -62,16 +68,17 @@ h5 {
     background-color: white;
   }
 
+  .title {
+    color: black;
+  }
+
+  .desktop {
+    display:none;
+  }
 }
 
 .white-text {
 
-}
-
-.backdrop {
-    border-radius: 5px;
-    padding: 1%;
-    background: white;
 }
 
 .jarallax {
