@@ -52,6 +52,10 @@ h5 {
     height: 700px;
   }
 
+   .mobile {
+    background: linear-gradient(9deg, black, gray);
+   }
+
   .jarallax {
     background-size: contain !important;
   }
@@ -92,4 +96,8 @@ h5 {
     background-blend-mode: saturation;
     opacity: .85;
     background-repeat: no-repeat;
+}
+
+.mobile {
+  animation-duration: 1s;
 }
