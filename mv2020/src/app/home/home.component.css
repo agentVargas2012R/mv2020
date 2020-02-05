@@ -1,0 +1,88 @@
+body {
+  color: black;
+}
+
+.padding-top-25 {
+  padding-top: 35%;
+}
+
+.img-container {
+  background-color: #000000;
+}
+
+.intro-header {
+  height: unset !important;
+}
+.top-nav-collapse {
+  background-color: #78909c !important;
+}
+.view {
+  height: 100vh !important;
+}
+.navbar:not(.top-nav-collapse) {
+  background: transparent !important;
+}
+@media (min-width: 768px) {
+  .navbar:not(.top-nav-collapse) {
+    background: #78909c !important;
+  }
+
+  .backdrop {
+    background: white;
+  }
+}
+h1 {
+  letter-spacing: 8px;
+}
+h5 {
+  letter-spacing: 3px;
+}
+.hr-light {
+  border-top: 3px solid #fff;
+  width: 80px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+  .full-height,
+  .full-height body,
+  .full-height header,
+  .full-height header .view {
+    height: 700px;
+  }
+
+  .jarallax {
+    background-size: contain !important;
+  }
+
+  .padding-top-25 {
+    padding-top: 55%;
+  }
+
+  .body {
+    background-color: white;
+  }
+
+}
+
+.white-text {
+
+}
+
+.backdrop {
+    border-radius: 5px;
+    padding: 1%;
+    background: white;
+}
+
+.jarallax {
+
+  background: linear-gradient(
+    rgba(20,20,20, .5),
+    rgba(20,20,20, .5)),
+    url("../../assets/images/surfin.jpg");
+
+    background-size: cover;
+    background-blend-mode: saturation;
+    opacity: .85;
+    background-repeat: no-repeat;
+}
