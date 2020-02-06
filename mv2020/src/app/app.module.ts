@@ -7,12 +7,14 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { GoodReadsComponent } from './good-reads/good-reads.component';
+import { HireComponent } from './hire/hire.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    GoodReadsComponent
+    GoodReadsComponent,
+    HireComponent
   ],
   imports: [
     BrowserModule,

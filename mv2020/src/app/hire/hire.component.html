@@ -1,0 +1,193 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+</head>
+<script src="https://www.amcharts.com/lib/4/plugins/forceDirected.js"></script>
+
+<!--Main Navigation-->
+<header class="intro-header hire-navbar">
+
+  <!--Navbar-->
+  <mdb-navbar  SideClass="navbar navbar-expand-lg navbar-dark">
+    <mdb-navbar-brand>
+      <a class="logo navbar-brand waves-light" mdbWavesEffect href="#"><strong>Who's This Guy?</strong></a>
+    </mdb-navbar-brand>
+    <links >
+      <ul class="navbar-nav mr-auto">
+        <!--
+        <li class="nav-item active waves-light" mdbWavesEffect>
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        -->
+
+        <li class="nav-item waves-light" mdbWavesEffect>
+          <a class="nav-link" href="/hire">Hire Me</a>
+        </li>
+
+        <li class="nav-item waves-light" mdbWavesEffect>
+          <a class="nav-link" href="/good-reads">Good Reads</a>
+        </li>
+      </ul>
+    </links>
+  </mdb-navbar>
+
+  <div class="jumbotron jumbotron-fluid jumbotron-bg">
+    <div class="container-fluid">
+      <div class="row animated fadeIn">
+        <div class="col-lg-2 col-md-2">
+            <img class="avatar" src="../../assets/images/profile.jpg" />
+        </div>
+        <div class="col-lg-10 col-md-10 my-md-5">
+                <br/>
+                <h1 class="display-4 text-light text-left">Here's What I Can Do For You</h1>
+                <p class="lead text-light font-italic text-left">Consulting For Leadership. Strategy For Development. Founded On Best Practice Architecture.</p>
+                <a mdbBtn color="white" outline="true" class="waves-light" mdbWavesEffect>
+                    My Resume
+                </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container-fluid">
+    <div class="row animated fadeInLeft" >
+      <div class="col-md-6">
+
+          <!--Card-->
+          <mdb-card cascade="true" wider="true">
+
+              <mdb-card-body cascade="true" class="text-center">
+                <!--Card content-->
+                <!--Title-->
+                <h4 class="card-title">
+                  <strong>Professional Experience</strong>
+                </h4>
+
+                <div id="chartdiv" style="width: 100%; height: 500px"></div>
+                Place Professional History Line Chart Here.
+
+                </mdb-card-body>
+              <!--/.Card content-->
+            </mdb-card>
+            <!--/.Card-->
+
+      </div>
+    <div class="col-md-6">
+          <!--Card-->
+          <mdb-card cascade="true" wider="true">
+
+            <mdb-card-body cascade="true" class="text-center">
+              <!--Card content-->
+              <!--Title-->
+              <h4 class="card-title">
+                <strong>Keywords</strong>
+              </h4>
+
+              <div id="forceDirectedTreeChartDiv" style="width: 100%; height: 500px"></div>
+              Key Word Generated Gif.
+
+
+              </mdb-card-body>
+            <!--/.Card content-->
+          </mdb-card>
+          <!--/.Card-->
+
+      </div>
+    </div>
+
+    <div class="row padding-top">
+        <div class="col-md-6">
+
+            <!--Card-->
+            <mdb-card cascade="true" wider="true">
+
+              <mdb-card-body cascade="true" class="text-center">
+                <!--Card content-->
+                <!--Title-->
+                <h4 class="card-title">
+                  <strong>Skills</strong>
+                </h4>
+
+                <div id="skillDiv" style="width: 100%; height: 500px"></div>
+                  Place Bar Chart Here.
+
+
+
+                </mdb-card-body>
+              <!--/.Card content-->
+            </mdb-card>
+            <!--/.Card-->
+
+      </div>
+      <div class="col-md-6">
+          <!--Card-->
+          <mdb-card cascade="true" wider="true">
+
+            <mdb-card-body cascade="true" class="text-center">
+              <!--Card content-->
+              <!--Title-->
+              <h4 class="card-title">
+                <strong>Day To Day</strong>
+              </h4>
+
+
+               <div id="day2DayDiv" style="width: 100%; height: 500px"></div>
+                Place Pie Chart Here.
+
+
+
+              </mdb-card-body>
+            <!--/.Card content-->
+          </mdb-card>
+          <!--/.Card-->
+
+        </div>
+    </div>
+
+      <div class="row padding-top animated fadeInRight">
+          <div class="col-md-6">
+
+              <!--Card-->
+              <mdb-card cascade="true" wider="true">
+
+                  <mdb-card-body cascade="true" class="text-center">
+                    <!--Card content-->
+                    <!--Title-->
+                    <h4 class="card-title">
+                      <strong>Salary</strong>
+                    </h4>
+
+                    <div id="salaryChartDiv" style="width: 100%; height: 500px"></div>
+
+                    Salary History Line Chart.
+
+                    </mdb-card-body>
+                  <!--/.Card content-->
+                </mdb-card>
+                <!--/.Card-->
+
+          </div>
+          <div class="col-md-6">
+
+              <!--Card-->
+              <mdb-card cascade="true" wider="true">
+
+                <mdb-card-body cascade="true" class="text-center">
+                  <!--Card content-->
+                  <!--Title-->
+                  <h4 class="card-title">
+                    <strong>Academic Credentials</strong>
+                  </h4>
+
+
+                  <div id="academicDiv" style="width: 100%; height: 500px"></div>
+                    Bar chart Here (Stacked With Certs and Degree)
+
+
+                  </mdb-card-body>
+                <!--/.Card content-->
+              </mdb-card>
+              <!--/.Card-->
+
+        </div>
+        </div>
+      </div>
