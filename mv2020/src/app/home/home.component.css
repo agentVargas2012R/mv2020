@@ -94,10 +94,14 @@ h5 {
 
     background-size: cover;
     background-blend-mode: saturation;
-    opacity: .85;
+    opacity: .9;
     background-repeat: no-repeat;
 }
 
 .mobile {
   animation-duration: 1s;
+}
+
+.padding-top-5 {
+  padding-top: 5%;
 }
