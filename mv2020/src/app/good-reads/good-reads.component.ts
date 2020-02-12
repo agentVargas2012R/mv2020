@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GoodReadsComponent implements OnInit {
 
-  constructor() { }
+  private showSpinner: boolean = true;
+
+  constructor() {
+      setTimeout(() => {
+        this.showSpinner = false;
+      }, 1500);
+   }
 
   ngOnInit() {
   }

@@ -1,10 +1,12 @@
 <head>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+  <meta http-equiv="Cache-Control" content="max-age=3000, must-revalidate"/>
+
 </head>
 <script src="https://www.amcharts.com/lib/4/plugins/forceDirected.js"></script>
 
 <!--Main Navigation-->
-<header class="intro-header hire-navbar">
+<header class="intro-header hire-navbar" [ng2-loading]="showSpinner">
 
   <!--Navbar-->
   <mdb-navbar  SideClass="navbar navbar-expand-lg navbar-dark">
@@ -32,15 +34,15 @@
 
   <div class="jumbotron jumbotron-fluid jumbotron-bg">
     <div class="container-fluid">
-      <div class="row animated fadeIn">
-        <div class="col-lg-2 col-md-2">
+      <div class="row animated ">
+        <div class="col-lg-3 col-md-3">
             <img class="avatar" src="../../assets/images/profile.jpg" />
         </div>
-        <div class="col-lg-10 col-md-10 my-md-5">
+        <div class="col-lg-9 col-md-9 my-md-5">
                 <br/>
                 <h1 class="display-4 text-light text-left">Here's What I Can Do For You</h1>
                 <p class="lead text-light font-italic text-left">Consulting For Leadership. Strategy For Development. Founded On Best Practice Architecture.</p>
-                <a mdbBtn color="white" outline="true" class="waves-light" mdbWavesEffect>
+                <a target="_blank" href="https://docs.google.com/document/d/1-5PsEiavUBqz2TF6rWrpi-53N0w7jd5lSOA2QZ9ARA0/edit?usp=sharing" mdbBtn color="white" outline="true" class="waves-light"   mdbWavesEffect>
                     My Resume
                 </a>
         </div>
@@ -49,8 +51,9 @@
   </div>
 </header>
 <div class="container-fluid">
-    <div class="row animated fadeInLeft" >
-      <div class="col-md-6">
+
+        <div class="row animated padding-top" >
+        <div class="col-md-6">
 
           <!--Card-->
           <mdb-card cascade="true" wider="true">
@@ -63,7 +66,7 @@
                 </h4>
 
                 <div id="chartdiv" style="width: 100%; height: 500px"></div>
-                Place Professional History Line Chart Here.
+
 
                 </mdb-card-body>
               <!--/.Card content-->
@@ -71,7 +74,7 @@
             <!--/.Card-->
 
       </div>
-    <div class="col-md-6">
+      <div class="col-md-6">
           <!--Card-->
           <mdb-card cascade="true" wider="true">
 
@@ -95,8 +98,99 @@
     </div>
 
     <div class="row padding-top">
-        <div class="col-md-6">
 
+
+      <div class="col-md-6">
+          <!--Card-->
+          <mdb-card cascade="true" wider="true">
+
+            <mdb-card-body cascade="true" class="text-center">
+              <!--Card content-->
+              <!--Title-->
+              <h4 class="card-title">
+                <strong>Front-End Frameworks</strong>
+              </h4>
+
+
+              <div id="academicDiv" style="width: 100%; height: 500px"></div>
+
+              </mdb-card-body>
+            <!--/.Card content-->
+          </mdb-card>
+          <!--/.Card-->
+
+    </div>
+    <div class="col-md-6">
+      <!--Card-->
+      <mdb-card cascade="true" wider="true">
+
+        <mdb-card-body cascade="true" class="text-center">
+          <!--Card content-->
+          <!--Title-->
+          <h4 class="card-title">
+            <strong>Back-End Frameworks</strong>
+          </h4>
+
+          <div id="backEndDiv" style="width: 100%; height: 500px"></div>
+
+          </mdb-card-body>
+        <!--/.Card content-->
+      </mdb-card>
+      <!--/.Card-->
+
+    </div>
+    </div>
+
+    <!-- BACK-END FRAMEWORK START-->
+    <div class="row padding-top">
+
+      <div class="col-md-6">
+        <!--Card-->
+        <mdb-card cascade="true" wider="true">
+
+          <mdb-card-body cascade="true" class="text-center">
+            <!--Card content-->
+            <!--Title-->
+            <h4 class="card-title">
+              <strong>Languages</strong>
+            </h4>
+
+            <div id="skillDiv" style="width: 100%; height: 500px"></div>
+
+            </mdb-card-body>
+          <!--/.Card content-->
+        </mdb-card>
+        <!--/.Card-->
+
+      </div>
+      <div class="col-md-6">
+          <!--Card-->
+          <mdb-card cascade="true" wider="true">
+
+            <mdb-card-body cascade="true" class="text-center">
+              <!--Card content-->
+              <!--Title-->
+              <h4 class="card-title">
+                <strong>Application Servers</strong>
+              </h4>
+
+
+              <div id="appServerDiv" style="width: 100%; height: 500px"></div>
+
+              </mdb-card-body>
+            <!--/.Card content-->
+          </mdb-card>
+          <!--/.Card-->
+
+    </div>
+
+    </div>
+     <!-- -->
+
+     <!-- TOOLS START-->
+     <div class="row padding-top">
+
+      <div class="col-md-6">
             <!--Card-->
             <mdb-card cascade="true" wider="true">
 
@@ -104,13 +198,10 @@
                 <!--Card content-->
                 <!--Title-->
                 <h4 class="card-title">
-                  <strong>Skills</strong>
+                  <strong>Tools/Editors</strong>
                 </h4>
 
-                <div id="skillDiv" style="width: 100%; height: 500px"></div>
-                  Place Bar Chart Here.
-
-
+                <div id="toolsDiv" style="width: 100%; height: 500px"></div>
 
                 </mdb-card-body>
               <!--/.Card content-->
@@ -126,68 +217,61 @@
               <!--Card content-->
               <!--Title-->
               <h4 class="card-title">
-                <strong>Day To Day</strong>
+                <strong>Cloud, OS and Devices</strong>
               </h4>
 
 
-               <div id="day2DayDiv" style="width: 100%; height: 500px"></div>
-                Place Pie Chart Here.
-
-
+              <div id="cloudsDiv" style="width: 100%; height: 500px"></div>
 
               </mdb-card-body>
             <!--/.Card content-->
           </mdb-card>
           <!--/.Card-->
 
-        </div>
     </div>
-
-      <div class="row padding-top animated fadeInRight">
-          <div class="col-md-6">
-
-              <!--Card-->
-              <mdb-card cascade="true" wider="true">
-
-                  <mdb-card-body cascade="true" class="text-center">
-                    <!--Card content-->
-                    <!--Title-->
-                    <h4 class="card-title">
-                      <strong>Salary</strong>
-                    </h4>
-
-                    <div id="salaryChartDiv" style="width: 100%; height: 500px"></div>
-
-                    Salary History Line Chart.
-
-                    </mdb-card-body>
-                  <!--/.Card content-->
-                </mdb-card>
-                <!--/.Card-->
-
-          </div>
-          <div class="col-md-6">
-
-              <!--Card-->
-              <mdb-card cascade="true" wider="true">
-
-                <mdb-card-body cascade="true" class="text-center">
-                  <!--Card content-->
-                  <!--Title-->
-                  <h4 class="card-title">
-                    <strong>Academic Credentials</strong>
-                  </h4>
+    </div>
+     <!-- -->
+    <div class="row padding-top animated ">
+      <div class="col-md-6">
+            <!--Card-->
+            <mdb-card cascade="true" wider="true">
 
 
-                  <div id="academicDiv" style="width: 100%; height: 500px"></div>
-                    Bar chart Here (Stacked With Certs and Degree)
+              <mdb-card-body cascade="true" class="text-center">
+                <!--Card content-->
+                <!--Title-->
+                <h4 class="card-title">
+                  <strong>The Daily Rundown</strong>
+                </h4>
 
 
-                  </mdb-card-body>
-                <!--/.Card content-->
-              </mdb-card>
-              <!--/.Card-->
+                 <div id="day2DayDiv" style="width: 100%; height: 500px"></div>
 
+
+
+
+                </mdb-card-body>
+              <!--/.Card content-->
+            </mdb-card>
+            <!--/.Card-->
         </div>
+        <!-- CREDENTAILS START-->
+        <div class="col-md-6">
+            <!--Card-->
+            <mdb-card cascade="true" wider="true">
+
+
+              <mdb-card-body cascade="true" class="text-center">
+                <!--Card content-->
+                <!--Title-->
+                <h4 class="card-title">
+                  <strong>Education/Credentials <br/>Represented By Time Spent Per Subject<br/>15,458 total hrs</strong>
+                </h4>
+                 <div id="credentialsDiv" style="width: 100%; height: 500px"></div>
+                </mdb-card-body>
+              <!--/.Card content-->
+            </mdb-card>
+            <!--/.Card-->
         </div>
       </div>
+</div>

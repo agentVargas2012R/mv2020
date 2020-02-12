@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  showSpinner: boolean = true;
+
+  constructor() {
+      setTimeout(() => {
+        this.showSpinner = false;
+      }, 1500);
+   }
 
   ngOnInit() {
   }

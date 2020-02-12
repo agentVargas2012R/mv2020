@@ -6,7 +6,7 @@ import am4themes_spiritedaway from "@amcharts/amcharts4/themes/material";
 import {ForceDirectedTree, ForceDirectedSeries} from "@amcharts/amcharts4/plugins/forceDirected";
 
 
-am4core.useTheme(am4themes_animated);
+//am4core.useTheme(am4themes_animated);
 
 @Component({
   selector: 'app-hire',
@@ -19,15 +19,31 @@ export class HireComponent implements OnInit {
 
   private skillChart: am4charts.XYChart;
 
+  private appServerChart: am4charts.XYChart;
+
+  private toolsChart: am4charts.XYChart;
+
+  private cloudsChart: am4charts.XYChart;
+
   private day2DayChart: am4charts.PieChart3D;
 
   private academicChart: am4charts.XYChart3D;
+
+  private backEndChart: am4charts.XYChart3D;
 
   private keyWordChart: ForceDirectedTree;
 
   private salaryChart: am4charts.XYChart;
 
-  constructor(private zone: NgZone) { }
+  private credentialsChart: am4charts.SlicedChart;
+
+  showSpinner: boolean = true;
+
+  constructor(private zone: NgZone) {
+      setTimeout(() => {
+        this.showSpinner = false;
+      }, 5000);
+   }
 
   ngOnInit() {
   }
@@ -35,701 +51,925 @@ export class HireComponent implements OnInit {
   ngAfterViewInit() {
 
     this.zone.runOutsideAngular(() => {
+      am4core.options.minPolylineStep = 20;
+      am4core.options.queue = true;
+      am4core.options.onlyShowOnViewport = true;
 
+      this.createProfessionalExperienceChart();
+      this.createSkillsChart();
+      this.createAcademicChart();
+      this.createBackEndChart();
+      this.createAppServerChart();
+      this.createToolChart();
+      this.createCloudsChart();
+      this.createDay2DayChart();
+      this.createCredentialsChart();
+      this.createForceKeywordDirectedGraph();
+    });
+  }
+
+  createProfessionalExperienceChart() {
       //Line Chart
-      let chart = am4core.create("chartdiv", am4charts.XYChart);
+      var chart = am4core.create("chartdiv", am4charts.XYChart);
 
-      chart.paddingRight = 20;
+      var value = 50;
 
-      let data = [];
-      let visits = 10;
-      for (let i = 1; i < 366; i++) {
-        visits += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 10);
-        data.push({ date: new Date(2018, 0, i), name: "name" + i, value: visits });
-      }
+      let firstJobDate = new Date(2002, 2);
+      firstJobDate.setHours(0,0,0,0);
+
+      let secondJobDate  = new Date(2003, 2);
+      secondJobDate.setHours(0,0,0,0);
+
+      let thirdJobDate  = new Date(2007, 7);
+      thirdJobDate.setHours(0,0,0,0);
+
+      let fourthJobDate  = new Date(2010, 3);
+      fourthJobDate.setHours(0,0,0,0);
+
+      let fifthJobDate  = new Date(2012, 6);
+      fifthJobDate.setHours(0,0,0,0);
+
+      let sixJobDate  = new Date(2014, 2);
+      sixJobDate.setHours(0,0,0,0);
+
+      var data = [
+        {date: firstJobDate, name: "Motorola", jobTitle: "GSM/CDMA System Integration Engineer", value: .4},
+        {date: secondJobDate, name: "Tyco", jobTitle: "Middelware Developer", value: 1.4},
+        {date: thirdJobDate, name: "Rewards Network", jobTitle: "Senior Java/Spring Application Developer", value: 5.4},
+        {date: fourthJobDate, name: "Interval International", jobTitle: "Senior Java Consultant", value: 8.4},
+        {date: fifthJobDate, name: "Engilty Corporation", jobTitle: "Technical Lead", value: 10.4},
+        {date: sixJobDate, name: "Intellipoint Corporation", jobTitle: "Full-Stack Developer\nIndependent Contractor", value: 15.4},
+      ];
+
 
       chart.data = data;
 
-      let dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-      dateAxis.renderer.grid.template.location = 0;
-
-      let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-      valueAxis.tooltip.disabled = true;
-      valueAxis.renderer.minWidth = 35;
-
-      let series = chart.series.push(new am4charts.LineSeries());
-      series.dataFields.dateX = "date";
-      series.dataFields.valueY = "value";
-
-      series.tooltipText = "{valueY.value}";
-      chart.cursor = new am4charts.XYCursor();
-
-      let scrollbarX = new am4charts.XYChartScrollbar();
-      scrollbarX.series.push(series);
-      chart.scrollbarX = scrollbarX;
-
-      this.chart = chart;
-
-      //XY Bar Chart
-      let skillChart = am4core.create("skillDiv" , am4charts.XYChart);
-
-      // Add data
-      skillChart.data = [{
-        "country": "USA",
-        "visits": 2025
-      }, {
-        "country": "China",
-        "visits": 1882
-      }, {
-        "country": "Japan",
-        "visits": 1809
-      }, {
-        "country": "Germany",
-        "visits": 1322
-      }, {
-        "country": "UK",
-        "visits": 1122
-      }, {
-        "country": "France",
-        "visits": 1114
-      }, {
-        "country": "India",
-        "visits": 984
-      }, {
-        "country": "Spain",
-        "visits": 711
-      }, {
-        "country": "Netherlands",
-        "visits": 665
-      }, {
-        "country": "Russia",
-        "visits": 580
-      }, {
-        "country": "South Korea",
-        "visits": 443
-      }, {
-        "country": "Canada",
-        "visits": 441
-      }, {
-        "country": "Brazil",
-        "visits": 395
-      }];
-
       // Create axes
+      var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+      dateAxis.renderer.minGridDistance = 60;
 
-      var categoryAxis = skillChart.xAxes.push(new am4charts.CategoryAxis());
-      categoryAxis.dataFields.category = "country";
-      categoryAxis.renderer.grid.template.location = 0;
-      categoryAxis.renderer.minGridDistance = 30;
+      var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+      valueAxis.tooltip.disabled = true;
 
-      categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
-        if (target.dataItem && target.dataItem.index) {
-          return dy + 25;
-        }
-        return dy;
-      });
+      // Create series
+      var series = chart.series.push(new am4charts.LineSeries());
+      series.dataFields.valueY = "value";
+      series.dataFields.dateX = "date";
+      series.tooltipText = "[bold] {jobTitle} [/] \n {name}, {value} years total experience"
 
-      var valueAxis2 = skillChart.yAxes.push(new am4charts.ValueAxis());
+      series.tooltip.pointerOrientation = "vertical";
 
-      var skillSeries = skillChart.series.push(new am4charts.ColumnSeries());
-      skillSeries.dataFields.valueY = "visits";
-      skillSeries.dataFields.categoryX = "country";
-      skillSeries.name = "Visits";
-      skillSeries.columns.template.tooltipText = "{categoryX}: [bold]{valueY}[/]";
-      skillSeries.columns.template.fillOpacity = .8;
+      chart.cursor = new am4charts.XYCursor();
+      chart.cursor.snapToSeries = series;
+      chart.cursor.xAxis = dateAxis;
 
-      var columnTemplate = skillSeries.columns.template;
-      columnTemplate.strokeWidth = 2;
+      //chart.scrollbarY = new am4core.Scrollbar();
+      chart.scrollbarX = new am4core.Scrollbar();
+      this.chart = chart;
+  }
 
-      skillSeries.columns.template.adapter.add("fill", function(fill, target) {
-        return skillChart.colors.getIndex(target.dataItem.index);
-      });
+  createSkillsChart() {
+    //XY Bar Chart
+    let skillChart = am4core.create("skillDiv" , am4charts.XYChart);
 
-      this.skillChart = skillChart;
+    // Add data
+      skillChart.data = [
+      {
+        "skill": "JS",
+        "years": 17
+      }, {
+        "skill": "Java/J2EE",
+        "years": 15
+      }, {
+        "skill": "HTML",
+        "years": 17
+      }, {
+        "skill": "XML",
+        "years": 17
+      }, {
+        "skill": "SQL",
+        "years": 10
+      }, {
+        "skill": "Groovy",
+        "years": 8
+      }, {
+        "skill": "Shell",
+        "years": 17
+      }, {
+        "skill": "LDAP",
+        "years": 2
+      }, {
+        "skill": "CSS",
+        "years": 10
+      }
+    ];
+
+    // Create axes
+
+    var categoryAxis = skillChart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category = "skill";
+    categoryAxis.renderer.grid.template.location = 0;
+    categoryAxis.renderer.minGridDistance = 5 ;
+
+    /*
+    categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
+      if (target.dataItem && target.dataItem.index) {
+        return dy + 25;
+      }
+      return dy;
+    });
+*/
+    var valueAxis2 = skillChart.yAxes.push(new am4charts.ValueAxis());
 
 
-      //Pie Chart Begins
-      let day2DayChart = am4core.create("day2DayDiv", am4charts.PieChart3D);
-      day2DayChart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+    var skillSeries = skillChart.series.push(new am4charts.ColumnSeries());
+    skillSeries.dataFields.valueY = "years";
+    skillSeries.dataFields.categoryX = "skill";
+    skillSeries.name = "years";
+    skillSeries.columns.template.tooltipText = "{categoryX}: [bold]{valueY} Years[/]";
+    skillSeries.columns.template.fillOpacity = .8;
+    //skillSeries.events.on("hidden", this.toggleAxes);
+    //skillSeries.events.on("shown", this.toggleAxes);
 
-      day2DayChart.legend = new am4charts.Legend();
+    skillSeries.minBulletDistance = 10;
+    var columnTemplate = skillSeries.columns.template;
+    columnTemplate.strokeWidth = 1;
 
-      day2DayChart.data = [
-        {
-          country: "Lithuania",
-          litres: 501.9
-        },
-        {
-          country: "Czech Republic",
-          litres: 301.9
-        },
-        {
-          country: "Ireland",
-          litres: 201.1
-        },
-        {
-          country: "Germany",
-          litres: 165.8
-        },
-        {
-          country: "Australia",
-          litres: 139.9
-        },
-        {
-          country: "Austria",
-          litres: 128.3
-        },
-        {
-          country: "UK",
-          litres: 99
-        },
-        {
-          country: "Belgium",
-          litres: 60
-        },
-        {
-          country: "The Netherlands",
-          litres: 50
-        }
-      ];
+    skillSeries.columns.template.adapter.add("fill", function(fill, target) {
+      return skillChart.colors.getIndex(target.dataItem.index);
+    });
 
-      var day2DayChartSeries = day2DayChart.series.push(new am4charts.PieSeries3D());
-      day2DayChartSeries.dataFields.value = "litres";
-      day2DayChartSeries.dataFields.category = "country";
+    this.skillChart = skillChart;
+  }
 
-      this.day2DayChart = day2DayChart;
+  toggleAxes(ev) {
+    let axis = ev.target.yAxis;
+    let disabled = true;
+    axis.series.each(function(series) {
+      if (!series.isHiding && !series.isHidden) {
+        disabled = false;
+      }
+    });
+    axis.disabled = disabled;
+  }
 
+  createAcademicChart() {
       //academicDiv
       let academicChart = am4core.create("academicDiv", am4charts.XYChart3D);
 
       // Add data
       academicChart.data = [{
-        "year": 2005,
-        "income": 23.5,
+        "years": 7,
+        "framework": "Angular",
         "color": academicChart.colors.next()
       }, {
-        "year": 2006,
-        "income": 26.2,
+        "years": 7,
+        "framework": "Ember",
         "color": academicChart.colors.next()
       }, {
-        "year": 2007,
-        "income": 30.1,
+        "years": 4,
+        "framework": "Angular Material",
         "color": academicChart.colors.next()
       }, {
-        "year": 2008,
-        "income": 29.5,
+        "years": 8,
+        "framework": "Bootstrap",
         "color": academicChart.colors.next()
       }, {
-        "year": 2009,
-        "income": 24.6,
+        "years": 4,
+        "framework": "Protractor",
+        "color": academicChart.colors.next()
+      }, {
+        "years": 7,
+        "framework": "Jasmine",
+        "color": academicChart.colors.next()
+      }, {
+        "years": 2,
+        "framework": "Anugular CLI",
+        "color": academicChart.colors.next()
+      }, {
+        "years": 4,
+        "framework": "Ember CLI",
+        "color": academicChart.colors.next()
+      }, {
+        "years": 4,
+        "framework": "LESS/SASS",
         "color": academicChart.colors.next()
       }];
 
       // Create axes
       var academicChartAxis = academicChart.yAxes.push(new am4charts.CategoryAxis());
-      academicChartAxis.dataFields.category = "year";
-      academicChartAxis.numberFormatter.numberFormat = "#";
+      academicChartAxis.dataFields.category = "framework";
+      //academicChartAxis.numberFormatter.numberFormat = "#";
       academicChartAxis.renderer.inversed = true;
 
       var  academicChartValueAxis = academicChart.xAxes.push(new am4charts.ValueAxis());
 
       // Create series
       var academicSeries = academicChart.series.push(new am4charts.ColumnSeries3D());
-      academicSeries.dataFields.valueX = "income";
-      academicSeries.dataFields.categoryY = "year";
-      academicSeries.name = "Income";
+      academicSeries.dataFields.valueX = "years";
+      academicSeries.dataFields.categoryY = "framework";
+      academicSeries.name = "Front-End Framework";
       academicSeries.columns.template.propertyFields.fill = "color";
-      academicSeries.columns.template.tooltipText = "{valueX}";
+      academicSeries.columns.template.tooltipText = "{valueX} years";
       academicSeries.columns.template.column3D.stroke = am4core.color("#fff");
       academicSeries.columns.template.column3D.strokeOpacity = 0.2;
+      academicSeries.minBulletDistance = 20;
+
       this.academicChart = academicChart;
+  }
 
-      // Create Force Directive Key Words
-      var forceDirectedTreeChart = am4core.create("forceDirectedTreeChartDiv", ForceDirectedTree);
 
-      var forceDirectedTreeNetworkSeries = forceDirectedTreeChart.series.push(new ForceDirectedSeries())
-      forceDirectedTreeNetworkSeries.dataFields.linkWith = "linkWith";
-      forceDirectedTreeNetworkSeries.dataFields.name = "name";
-      forceDirectedTreeNetworkSeries.dataFields.id = "name";
-      forceDirectedTreeNetworkSeries.dataFields.value = "value";
-      forceDirectedTreeNetworkSeries.dataFields.children = "children";
+  createBackEndChart() {
+    //academicDiv
+    let backEndChart = am4core.create("backEndDiv", am4charts.XYChart3D);
 
-      forceDirectedTreeNetworkSeries.nodes.template.label.text = "{name}"
-      forceDirectedTreeNetworkSeries.fontSize = 8;
-      forceDirectedTreeNetworkSeries.linkWithStrength = 0;
+    // Add data
+    backEndChart.data = [{
+      "years": 14,
+      "framework": "Spring Core",
+      "color": backEndChart.colors.next()
+    }, {
+      "years": 4,
+      "framework": "MapReduce",
+      "color": backEndChart.colors.next()
+    }, {
+      "years": 14,
+      "framework": "Spring Webflow",
+      "color": backEndChart.colors.next()
+    }, {
+      "years": 8,
+      "framework": "Spring Web Services (WS)",
+      "color": backEndChart.colors.next()
+    }, {
+      "years": 8,
+      "framework": "Grails",
+      "color": backEndChart.colors.next()
+    }, {
+      "years": 4,
+      "framework": "IBatis",
+      "color": backEndChart.colors.next()
+    }, {
+      "years": 4,
+      "framework": "Hibernate",
+      "color": backEndChart.colors.next()
+    }, {
+      "years": 4,
+      "framework": "JPA 2.0",
+      "color": backEndChart.colors.next()
+    }, {
+      "years": 6,
+      "framework": "Dozer",
+      "color": backEndChart.colors.next()
+    }, {
+      "years": 4,
+      "framework": "Sqoop",
+      "color": backEndChart.colors.next()
+    }, {
+      "years": 4,
+      "framework": "Oozie",
+      "color": backEndChart.colors.next()
+    }, {
+      "years": 4,
+      "framework": "Hive",
+      "color": backEndChart.colors.next()
+    }, {
+      "years": 4,
+      "framework": "HBase",
+      "color": backEndChart.colors.next()
+    }];
 
-      var nodeTemplate = forceDirectedTreeNetworkSeries.nodes.template;
-      nodeTemplate.tooltipText = "{name}";
-      nodeTemplate.fillOpacity = 1;
-      nodeTemplate.label.hideOversized = true;
-      nodeTemplate.label.truncate = true;
+    // Create axes
+    var backEndChartAxis = backEndChart.yAxes.push(new am4charts.CategoryAxis());
+    backEndChartAxis.dataFields.category = "framework";
+    //academicChartAxis.numberFormatter.numberFormat = "#";
+    backEndChartAxis.renderer.inversed = true;
 
-      var linkTemplate = forceDirectedTreeNetworkSeries.links.template;
-      linkTemplate.strokeWidth = 1;
-      var linkHoverState = linkTemplate.states.create("hover");
-      linkHoverState.properties.strokeOpacity = 1;
-      linkHoverState.properties.strokeWidth = 2;
+    var  backEndChartAxisValueAxis = backEndChart.xAxes.push(new am4charts.ValueAxis());
 
-      nodeTemplate.events.on("over", function (event) {
-          var dataItem = event.target.dataItem;
-          dataItem.childLinks.each(function (link) {
-              link.isHover = true;
-          })
-      })
+    // Create series
+    var academicSeries = backEndChart.series.push(new am4charts.ColumnSeries3D());
+    academicSeries.dataFields.valueX = "years";
+    academicSeries.dataFields.categoryY = "framework";
+    academicSeries.name = "Back-End Framework";
+    academicSeries.columns.template.propertyFields.fill = "color";
+    academicSeries.columns.template.tooltipText = "{framework}, {valueX} years";
+    academicSeries.columns.template.column3D.stroke = am4core.color("#fff");
+    academicSeries.columns.template.column3D.strokeOpacity = 0.2;
+    academicSeries.minBulletDistance = 20;
 
-      nodeTemplate.events.on("out", function (event) {
-          var dataItem = event.target.dataItem;
-          dataItem.childLinks.each(function (link) {
-              link.isHover = false;
-          })
-      })
+    this.backEndChart = backEndChart;
+  }
 
-      forceDirectedTreeNetworkSeries.data = [
+  createAppServerChart() {
+    //XY Bar Chart
+    let appServerChart = am4core.create("appServerDiv" , am4charts.XYChart);
+
+    // Add data
+    appServerChart.data = [
+      {
+        "skill": "NodeJS",
+        "description" : "Node JS App Server",
+        "years": 8
+      }, {
+        "skill": "Tomcat",
+        "description" : "Apache Tomcat Server",
+        "years": 14
+      }, {
+        "skill": "JBoss",
+        "description" : "Redhat JBOSS Server",
+        "years": 10
+      }, {
+        "skill": "WebLogic",
+        "description" : "Oracle's WebLogic Server",
+        "years": 4
+      }, {
+        "skill": "WAS",
+        "description" : "IBM Websphere Application Server",
+        "years": 8
+      }, {
+        "skill": "BPM",
+        "description" : "IBM Process Server",
+        "years": 8
+      }, {
+        "skill": "Resin",
+        "description" : "Caucho Resin Server",
+        "years": 8
+      }, {
+        "skill": "Terracotta",
+        "description" : "Big Memory/Terracotta Server",
+        "years": 10
+      }
+    ];
+
+    // Create axes
+
+    var categoryAxis = appServerChart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category = "skill";
+    categoryAxis.renderer.grid.template.location = 0;
+    categoryAxis.renderer.minGridDistance = 5 ;
+
+    /*
+    categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
+      if (target.dataItem && target.dataItem.index) {
+        return dy + 25;
+      }
+      return dy;
+    });
+*/
+    var valueAxis2 = appServerChart.yAxes.push(new am4charts.ValueAxis());
+
+
+    var skillSeries = appServerChart.series.push(new am4charts.ColumnSeries());
+    skillSeries.dataFields.valueY = "years";
+    skillSeries.dataFields.categoryX = "skill";
+    skillSeries.name = "years";
+    skillSeries.columns.template.tooltipText = "{description}: [bold]{valueY} Years[/]";
+    skillSeries.columns.template.fillOpacity = .8;
+    //skillSeries.events.on("hidden", this.toggleAxes);
+    //skillSeries.events.on("shown", this.toggleAxes);
+
+    skillSeries.minBulletDistance = 10;
+    var columnTemplate = skillSeries.columns.template;
+    columnTemplate.strokeWidth = 1;
+
+    skillSeries.columns.template.adapter.add("fill", function(fill, target) {
+      return appServerChart.colors.getIndex(target.dataItem.index);
+    });
+
+    this.appServerChart = appServerChart;
+  }
+
+  createToolChart() {
+
+      //XY Bar Chart
+      let toolsChart = am4core.create("toolsDiv" , am4charts.XYChart);
+
+      // Add data
+      toolsChart.data = [
         {
-            "name":"Phoebe",
-            "value":102,
-            "linkWith":[
-              "Gunther"
-            ],
-            "children":[
-              {
-                  "name":"David",
-                  "value":14
-              },
-              {
-                  "name":"Roger",
-                  "value":1
-              },
-              {
-                  "name":"Duncan",
-                  "value":1
-              },
-              {
-                  "name":"Rob Dohnen",
-                  "value":2
-              },
-              {
-                  "name":"Ryan",
-                  "value":5
-              },
-              {
-                  "name":"Malcom",
-                  "value":1
-              },
-              {
-                  "name":"Robert",
-                  "value":1
-              },
-              {
-                  "name":"Sergei",
-                  "value":1
-              },
-              {
-                  "name":"Vince",
-                  "value":2
-              },
-              {
-                  "name":"Jason",
-                  "value":1
-              },
-              {
-                  "name":"Rick",
-                  "value":2
-              },
-              {
-                  "name":"Gary",
-                  "value":7
-              },
-              {
-                  "name":"Jake",
-                  "value":2
-              },
-              {
-                  "name":"Eric",
-                  "value":3
-              },
-              {
-                  "name":"Mike",
-                  "value":18
-              }
-            ]
-        },
-        {
-            "name":"Monica",
-            "value":204,
-            "linkWith":[
-              "Rachel",
-              "Chandler",
-              "Ross",
-              "Joey",
-              "Phoebe"
-            ],
-            "children":[
-              {
-                  "name":"Paul the wine guy",
-                  "value":1
-              },
-              {
-                  "name":"Mr Geller",
-                  "value":8
-              },
-              {
-                  "name":"Mrs Geller",
-                  "value":14
-              },
-              {
-                  "name":"Aunt Lilian",
-                  "value":2
-              },
-              {
-                  "name":"Nana",
-                  "value":1
-              },
-              {
-                  "name":"Young Ethan",
-                  "value":5
-              },
-              {
-                  "name":"Ben",
-                  "value":9
-              },
-              {
-                  "name":"Fun Bobby",
-                  "value":3
-              },
-              {
-                  "name":"Richard",
-                  "value":16
-              },
-              {
-                  "name":"Mrs Green",
-                  "value":4
-              },
-              {
-                  "name":"Paolo2",
-                  "value":1
-              },
-              {
-                  "name":"Pete",
-                  "value":10
-              },
-              {
-                  "name":"Chip",
-                  "value":1
-              },
-              {
-                  "name":"Timothy (Burke)",
-                  "value":1
-              },
-              {
-                  "name":"Emily",
-                  "value":17
-              },
-              {
-                  "name":"Dr. Roger",
-                  "value":3
-              }
-            ]
-        },
-        {
-            "name":"Ross",
-            "value":216,
-            "linkWith":[
-              "Joey",
-              "Phoebe",
-              "Mrs Geller",
-              "Aunt Lilian",
-              "Mrs Bing",
-              "Ben",
-              "Mrs Green",
-              "Emily"
-            ],
-            "children":[
-              {
-                  "name":"Carol",
-                  "value":10
-              },
-              {
-                  "name":"Celia",
-                  "value":2
-              },
-              {
-                  "name":"Julie",
-                  "value":6
-              },
-              {
-                  "name":"Chloe",
-                  "value":1
-              },
-              {
-                  "name":"Bonnie",
-                  "value":4
-              },
-              {
-                  "name":"Messy Girl (Cheryl)",
-                  "value":5
-              },
-              {
-                  "name":"Jill",
-                  "value":1
-              },
-              {
-                  "name":"Elizabeth",
-                  "value":8
-              },
-              {
-                  "name":"Aunt Millie",
-                  "value":2
-              },
-              {
-                  "name":"Mona",
-                  "value":11
-              },
-              {
-                  "name":"Emma",
-                  "value":7
-              },
-              {
-                  "name":"Charlie",
-                  "value":13
-              }
-            ]
-        },
-        {
-            "name":"Chandler",
-            "value":167,
-            "linkWith":[
-              "Joey",
-              "Phoebe"
-            ],
-            "children":[
-              {
-                  "name":"Aurora",
-                  "value":2
-              },
-              {
-                  "name":"Jill Goodacre",
-                  "value":1
-              },
-              {
-                  "name":"Janice",
-                  "value":12
-              },
-              {
-                  "name":"Mrs Bing",
-                  "value":6
-              },
-              {
-                  "name":"Nina",
-                  "value":1
-              },
-              {
-                  "name":"Susie",
-                  "value":5
-              },
-              {
-                  "name":"Mary Theresa",
-                  "value":1
-              },
-              {
-                  "name":"Ginger",
-                  "value":2
-              },
-              {
-                  "name":"Joanna",
-                  "value":5
-              },
-              {
-                  "name":"Kathy",
-                  "value":9
-              },
-              {
-                  "name":"Mr Bing",
-                  "value":1
-              }
-            ]
-        },
-        {
-            "name":"Rachel",
-            "value":158,
-            "linkWith":[
-              "Chandler",
-              "Ross",
-              "Joey",
-              "Phoebe",
-              "Mr Geller",
-              "Mrs Geller"
-            ],
-            "children":[
-              {
-                  "name":"Paolo",
-                  "value":5
-              },
-              {
-                  "name":"Barry",
-                  "value":1
-              },
-              {
-                  "name":"Dr Green",
-                  "value":3
-              },
-              {
-                  "name":"Mark3",
-                  "value":1
-              },
-              {
-                  "name":"Josh",
-                  "value":2
-              },
-              {
-                  "name":"Gunther",
-                  "value":2
-              },
-              {
-                  "name":"Joshua",
-                  "value":3
-              },
-              {
-                  "name":"Danny",
-                  "value":1
-              },
-              {
-                  "name":"Mr. Zelner",
-                  "value":1
-              },
-              {
-                  "name":"Paul Stevens",
-                  "value":3
-              },
-              {
-                  "name":"Tag",
-                  "value":4
-              },
-              {
-                  "name":"Melissa",
-                  "value":1
-              },
-              {
-                  "name":"Gavin",
-                  "value":2
-              }
-            ]
-        },
-        {
-            "name":"Joey",
-            "value":88,
-            "linkWith":[
-              "Phoebe",
-              "Janice",
-              "Mrs Green",
-              "Kathy",
-              "Emily",
-              "Charlie"
-            ],
-            "children":[
-              {
-                  "name":"Lorraine",
-                  "value":2
-              },
-              {
-                  "name":"Melanie",
-                  "value":2
-              },
-              {
-                  "name":"Erica",
-                  "value":2
-              },
-              {
-                  "name":"Kate",
-                  "value":4
-              },
-              {
-                  "name":"Lauren",
-                  "value":2
-              },
-              {
-                  "name":"Estelle",
-                  "value":1
-              },
-              {
-                  "name":"Katie",
-                  "value":2
-              },
-              {
-                  "name":"Janine",
-                  "value":9
-              },
-              {
-                  "name":"Erin",
-                  "value":1
-              },
-              {
-                  "name":"Cecilia",
-                  "value":3
-              }
-            ]
+          "tool": "GitHub",
+          "description" : "Source Control System",
+          "years": 6
+        }, {
+          "tool": "SVN",
+          "description" : "Subversion Source Control ",
+          "years": 10
+        }, {
+          "tool": "CVS",
+          "description" : "Source Control",
+          "years": 4
+        }, {
+          "tool": "PVCS",
+          "description" : "Source Control System",
+          "years": 8
+        }, {
+          "tool": "RTC",
+          "description" : "IBM Rational Team Tracker",
+          "years": 2
+        }, {
+          "tool": "Maven",
+          "description" : "Apache Maven Build System",
+          "years": 12
+        }, {
+          "tool": "ANT",
+          "description" : "Another Neat Tool",
+          "years": 15
+        }, {
+          "tool": "VS",
+          "description" : "Visual Studio Code Editor",
+          "years": 4
+        }, {
+          "tool": "Eclip.",
+          "description" : "Eclipse Source Code Editor",
+          "years": 14
+        }, {
+          "tool": "Spring",
+          "description" : "Spring IDE Source Code Editor",
+          "years": 10
+        }, {
+          "tool": "NB",
+          "description" : "NetBeans Source Code Editor",
+          "years": 16
+        }, {
+          "tool": "intelliJ",
+          "description" : "Source Code Editor",
+          "years": 12
         }
       ];
 
-      this.keyWordChart = forceDirectedTreeChart;
+      // Create axes
 
-      //SALARY START
-      //Line Chart
-      let salaryChart = am4core.create("salaryChartDiv", am4charts.XYChart);
+      var categoryAxis = toolsChart.xAxes.push(new am4charts.CategoryAxis());
+      categoryAxis.dataFields.category = "tool";
+      categoryAxis.renderer.grid.template.location = 0;
+      categoryAxis.renderer.minGridDistance = 5 ;
 
-      salaryChart.paddingRight = 20;
+      /*
+      categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
+        if (target.dataItem && target.dataItem.index) {
+          return dy + 25;
+        }
+        return dy;
+      });
+    */
+      var valueAxis2 = toolsChart.yAxes.push(new am4charts.ValueAxis());
 
-      let salaryData = [];
-      let salaryVisits = 10;
-      for (let i = 1; i < 366; i++) {
-        salaryVisits += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 10);
-        salaryData.push({ date: new Date(2018, 0, i), name: "name" + i, value: salaryVisits });
-      }
 
-      salaryChart.data = salaryData;
+      var skillSeries = toolsChart.series.push(new am4charts.ColumnSeries());
+      skillSeries.dataFields.valueY = "years";
+      skillSeries.dataFields.categoryX = "tool";
+      skillSeries.name = "years";
+      skillSeries.columns.template.tooltipText = "{description}: [bold]{valueY} Years[/]";
+      skillSeries.columns.template.fillOpacity = .8;
+      //skillSeries.events.on("hidden", this.toggleAxes);
+      //skillSeries.events.on("shown", this.toggleAxes);
 
-      let salaryChartAxis = salaryChart.xAxes.push(new am4charts.DateAxis());
-      salaryChartAxis.renderer.grid.template.location = 0;
+      skillSeries.minBulletDistance = 10;
+      var columnTemplate = skillSeries.columns.template;
+      columnTemplate.strokeWidth = 1;
 
-      let salaryChartAxisValueAxis = salaryChart.yAxes.push(new am4charts.ValueAxis());
-      salaryChartAxisValueAxis.tooltip.disabled = true;
-      salaryChartAxisValueAxis.renderer.minWidth = 35;
+      skillSeries.columns.template.adapter.add("fill", function(fill, target) {
+        return toolsChart.colors.getIndex(target.dataItem.index);
+      });
 
-      let salaryChartSeries = salaryChart.series.push(new am4charts.LineSeries());
-      salaryChartSeries.dataFields.dateX = "date";
-      salaryChartSeries.dataFields.valueY = "value";
-
-      salaryChartSeries.tooltipText = "{valueY.value}";
-      salaryChart.cursor = new am4charts.XYCursor();
-
-      let salaryChartScrollbarX = new am4charts.XYChartScrollbar();
-      salaryChartScrollbarX.series.push(series);
-      salaryChart.scrollbarX = salaryChartScrollbarX;
-
-      this.salaryChart = salaryChart;
-
-    });
+      this.toolsChart = toolsChart;
   }
 
-  ngOnDestroy() {
-    this.zone.runOutsideAngular(() => {
+  createCloudsChart() {
+    //XY Bar Chart
+    let cloudsChart = am4core.create("cloudsDiv" , am4charts.XYChart);
 
-      if (this.chart) {
-        this.chart.dispose();
+    // Add data
+    cloudsChart.data = [
+      {
+        "tool": "AWS",
+        "description" : "EC2, AWS Lambda, DynamoDB, CloudFront, S3, Aurora, API Gateway",
+        "years": 6
+      }, {
+        "tool": "SalesForce",
+        "description" : "Administration and APEX Development ",
+        "years": 7
+      }, {
+        "tool": "Android",
+        "description" : "Native Android Development",
+        "years": 4
+      }, {
+        "tool": "Ionic",
+        "description" : "Ionic Hybrid Mobile App Development",
+        "years": 6
       }
+    ];
 
-      if(this.skillChart){
-        this.skillChart.dispose();
-      }
+    // Create axes
 
-      if(this.keyWordChart){
-        this.keyWordChart.dispose();
-      }
+    var categoryAxis = cloudsChart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category = "tool";
+    categoryAxis.renderer.grid.template.location = 0;
+    categoryAxis.renderer.minGridDistance = 5 ;
 
-      if(this.salaryChart){
-        this.salaryChart.dispose();
+    /*
+    categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
+      if (target.dataItem && target.dataItem.index) {
+        return dy + 25;
       }
+      return dy;
     });
+  */
+    var valueAxis2 = cloudsChart.yAxes.push(new am4charts.ValueAxis());
+
+
+    var skillSeries = cloudsChart.series.push(new am4charts.ColumnSeries());
+    skillSeries.dataFields.valueY = "years";
+    skillSeries.dataFields.categoryX = "tool";
+    skillSeries.name = "years";
+    skillSeries.columns.template.tooltipText = "{description}: [bold]{valueY} Years[/]";
+    skillSeries.columns.template.fillOpacity = .8;
+    //skillSeries.events.on("hidden", this.toggleAxes);
+    //skillSeries.events.on("shown", this.toggleAxes);
+
+    skillSeries.minBulletDistance = 10;
+    var columnTemplate = skillSeries.columns.template;
+    columnTemplate.strokeWidth = 1;
+
+    skillSeries.columns.template.adapter.add("fill", function(fill, target) {
+      return cloudsChart.colors.getIndex(target.dataItem.index);
+    });
+
+    this.cloudsChart = cloudsChart;
   }
 
+  createDay2DayChart() {
+
+        //Pie Chart Begins
+        let day2DayChart = am4core.create("day2DayDiv", am4charts.PieChart3D);
+        day2DayChart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+        day2DayChart.legend = new am4charts.Legend();
+
+        day2DayChart.data = [
+          {
+            task: "Meetings",
+            time: 312
+          },
+          {
+            task: "Development",
+            time: 1248
+          },
+          {
+            task: "Sprint Planning",
+            time: 208
+          },
+          {
+            task: "Architecture",
+            time: 634
+          },
+          {
+            task: "Communication",
+            time:312
+          },
+          {
+            task: "Traveling",
+            time: 40
+          },
+          {
+            task: "Product Review",
+            time: 312
+          }
+        ];
+
+        var day2DayChartSeries = day2DayChart.series.push(new am4charts.PieSeries3D());
+        day2DayChartSeries.dataFields.value = "time";
+        day2DayChartSeries.dataFields.category = "task";
+        day2DayChartSeries.minBulletDistance = 20;
+        this.day2DayChart = day2DayChart;
+  }
+
+  createCredentialsChart() {
+      "credentialsDiv"
+
+      var credentialsChart = am4core.create("credentialsDiv", am4charts.SlicedChart);
+      credentialsChart.paddingBottom = 30;
+      credentialsChart.data = [{
+        "name": "B.S. in Computer Science",
+        "value": 8320
+      }, {
+        "name": "AWS Solution Architect Certified",
+        "value": 960
+      }, {
+        "name": "AWS Developer Certified",
+        "value": 960
+      }, {
+        "name": "Associate MuleSoft Developer Certification",
+        "value": 320
+      }, {
+        "name": "Cloudera Certified Developer for Apache Hadoop",
+        "value": 960
+      }, {
+        "name": "Cloudera Certified Administrator for Apache Hadoop",
+        "value": 960
+      }, {
+        "name": "Sun Certifications Java Programmer ",
+        "value": 1256
+      }, {
+        "name": "Sun Certifications Java Web Component Developer",
+        "value": 784
+      }, {
+        "name": "Sun Certifications Java Developer",
+        "value": 560
+      }, {
+        "name": "W3C JQuery Certified",
+        "value": 120
+      }, {
+        "name": "Certified Scrum Master CSM Alliance",
+        "value": 90
+      }, {
+        "name": "Dan whalen & John Pap's Ultimate Angular Workshop Course",
+        "value": 16
+      }, {
+        "name": "Spring Core Class Course",
+        "value": 24
+      }, {
+        "name": "SalesForce.com Administrator Fundamentals Course",
+        "value": 24
+      }, {
+        "name": "SalesForce.com Advanced Fundamentals Course",
+        "value": 24
+      }, {
+        "name": "IBM Websphere Business Integration Server Course",
+        "value": 72
+      }, {
+        "name": "IBM eCommerce Server Course",
+        "value": 8
+      }];
+
+      var series = credentialsChart.series.push(new am4charts.PyramidSeries());
+      series.dataFields.value = "value";
+      series.dataFields.category = "name";
+
+      //series.columns.tooltipText = "{description}";
+
+      series.alignLabels = true;
+      series.valueIs = "height";
+
+      this.credentialsChart = credentialsChart;
+  }
+
+  createForceKeywordDirectedGraph() {
+
+    // Create Force Directive Key Words
+    var forceDirectedTreeChart = am4core.create("forceDirectedTreeChartDiv", ForceDirectedTree);
+
+    var forceDirectedTreeNetworkSeries = forceDirectedTreeChart.series.push(new ForceDirectedSeries())
+    forceDirectedTreeNetworkSeries.dataFields.linkWith = "linkWith";
+    forceDirectedTreeNetworkSeries.dataFields.name = "name";
+    forceDirectedTreeNetworkSeries.dataFields.id = "name";
+    forceDirectedTreeNetworkSeries.dataFields.value = "value";
+    forceDirectedTreeNetworkSeries.dataFields.children = "children";
+
+    forceDirectedTreeNetworkSeries.nodes.template.label.text = "{name}"
+    forceDirectedTreeNetworkSeries.fontSize = 8;
+    forceDirectedTreeNetworkSeries.linkWithStrength = 0;
+
+    var nodeTemplate = forceDirectedTreeNetworkSeries.nodes.template;
+    nodeTemplate.tooltipText = "{name}";
+    nodeTemplate.fillOpacity = 1;
+    nodeTemplate.label.hideOversized = true;
+    nodeTemplate.label.truncate = true;
+
+    var linkTemplate = forceDirectedTreeNetworkSeries.links.template;
+    linkTemplate.strokeWidth = 1;
+    var linkHoverState = linkTemplate.states.create("hover");
+    linkHoverState.properties.strokeOpacity = 1;
+    linkHoverState.properties.strokeWidth = 2;
+
+    nodeTemplate.events.on("over", function (event) {
+        var dataItem = event.target.dataItem;
+        dataItem.childLinks.each(function (link) {
+            link.isHover = true;
+        })
+    })
+
+    nodeTemplate.events.on("out", function (event) {
+        var dataItem = event.target.dataItem;
+        dataItem.childLinks.each(function (link) {
+            link.isHover = false;
+        })
+    })
+
+    forceDirectedTreeNetworkSeries.data = [
+      {
+          "name":"Java",
+          "value":2020,
+          "linkWith":[
+            "JavaScript",
+            "Agile",
+            "Cloud"
+          ],
+          "children":[
+            {
+                "name":"JBoss",
+                "value":1400
+            },
+            {
+                "name":"Spring",
+                "value": 600
+            },
+            {
+                "name":"Tomcat",
+                "value":1000
+            },
+            {
+                "name":"WebLogic",
+                "value":100
+            },
+            {
+                "name":"BPM",
+                "value":200
+            },
+            {
+                "name":"Teraacotta",
+                "value":900
+            },
+            {
+                "name":"Groovy",
+                "value":1000
+            },
+            {
+                "name":"Grails",
+                "value":1000
+            },
+            {
+                "name":"JSTL",
+                "value":100
+            },
+            {
+                "name":"JSP",
+                "value":200
+            },
+            {
+                "name":"J2EE",
+                "value":1000
+            },
+            {
+                "name":"Rewards Network",
+                "value":20
+            },
+            {
+                "name":"ADT/Tyco",
+                "value":30
+            },
+            {
+                "name":"Back-End Development",
+                "value":180
+            }
+          ]
+      },
+      {
+          "name":"JavaScript",
+          "value":2040,
+          "linkWith":[
+            "Java",
+            "Agile",
+            "Ross",
+            "Joey",
+            "Phoebe"
+          ],
+          "children":[
+            {
+                "name":"Angular 1.x",
+                "value":100
+            },
+            {
+                "name":"Angular 2+",
+                "value":2000
+            },
+            {
+                "name":"Ember",
+                "value":1400
+            },
+            {
+                "name":"CoffeeScript",
+                "value":200
+            },
+            {
+                "name":"Angular CLI",
+                "value":1000
+            },
+            {
+                "name":"Ember CLI",
+                "value":500
+            },
+            {
+                "name":"Node (JS)",
+                "value":2200
+            },
+            {
+                "name":"Protractor",
+                "value":300
+            },
+            {
+                "name":"Jasmine",
+                "value":1600
+            },
+            {
+                "name":"Material",
+                "value":1400
+            },
+            {
+                "name":"Boostrap 3/4 ",
+                "value":2000
+            },
+            {
+                "name":"Promises",
+                "value":1000
+            },
+            {
+                "name":"Async",
+                "value":100
+            },
+            {
+                "name":"ES8",
+                "value":1000
+            },
+            {
+                "name":"F.A.U.",
+                "value":170
+            },
+            {
+                "name":"Intellipoint Academy",
+                "value":90
+            }
+          ]
+      },
+      {
+          "name":"Cloud",
+          "value":1670,
+          "linkWith":[
+            "Java",
+            "JavaScript",
+            "Agile"
+          ],
+          "children":[
+            {
+                "name":"DevOps",
+                "value":150
+            },
+            {
+                "name":"Serverless",
+                "value":1000
+            },
+            {
+                "name":"AWS Lambda",
+                "value":1000
+            },
+            {
+                "name":"AWS Gateway API",
+                "value":1200
+            },
+            {
+                "name":"AWS EC2",
+                "value":600
+            },
+            {
+                "name":"Glacier",
+                "value":1000
+            },
+            {
+                "name":"CloudFront",
+                "value":2500
+            },
+            {
+                "name":"Route53",
+                "value":1500
+            },
+            {
+                "name":"DynamoDB",
+                "value":900
+            },
+            {
+                "name":"Aurora",
+                "value":500
+            },
+            {
+                "name":"SalesForce.com",
+                "value":900
+            },
+            {
+                "name":"AWS",
+                "value":1000
+            },
+            {
+                "name":"Apex",
+                "value":100
+            },
+            {
+                "name":"VisualForce Pages",
+                "value":100
+            }
+          ]
+      }
+    ];
+
+    this.keyWordChart = forceDirectedTreeChart;
+  }
 }
