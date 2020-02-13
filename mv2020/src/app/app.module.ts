@@ -8,14 +8,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { GoodReadsComponent } from './good-reads/good-reads.component';
 import { HireComponent } from './hire/hire.component';
-import { Ng2LoadingSpinnerModule } from 'ng2-loading-spinner'
+import { Ng2LoadingSpinnerModule } from 'ng2-loading-spinner';
+import { PortfolioComponent } from './portfolio/portfolio.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     GoodReadsComponent,
-    HireComponent
+    HireComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
