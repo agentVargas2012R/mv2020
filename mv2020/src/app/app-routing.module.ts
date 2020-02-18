@@ -8,12 +8,14 @@ import {HomeComponent} from './home/home.component';
 import {GoodReadsComponent} from './good-reads/good-reads.component';
 import {HireComponent} from './hire/hire.component';
 import {PortfolioComponent} from './portfolio/portfolio.component';
+import  {CaseStudyComponent} from './case-study/case-study.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', component: HomeComponent},
   {path: 'good-reads', pathMatch: 'full', component: GoodReadsComponent},
   {path: 'hire', pathMatch: 'full', component: HireComponent},
-  {path: "portfolio", pathMatch: 'full', component: PortfolioComponent}
+  {path: "portfolio", pathMatch: 'full', component: PortfolioComponent},
+  {path: 'case-study', pathMatch: 'full', component: CaseStudyComponent}
 ];
 
 @NgModule({

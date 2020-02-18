@@ -1,0 +1,59 @@
+.portfolio-navbar {
+  background: linear-gradient(45deg, #6B0000, #990000);
+}
+
+.jumbotron-bg {
+  background: linear-gradient(45deg,#A82626, #B84D4D);
+}
+
+.bigFont {
+  font-size: 5rem;
+}
+
+.font1 {
+  color: #6B0000
+}
+
+.font2 {
+  color: #990000;
+}
+
+.font3 {
+  color: #A82626
+}
+
+.font4 {
+  color: #B84D4D
+}
+
+.pad-left {
+  padding-left: 5px;
+}
+
+.emphasis {
+  font-size: 2rem;
+  letter-spacing: -.03125rem;
+  padding-bottom: 1%;
+}
+
+
+.main-content {
+  font-size: 1.55rem;
+  letter-spacing: -.03125rem;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.padding-top {
+  padding-top: 2%;
+}
+
+.pad-right {
+  padding-right: 5px;
+}
+
+.stronger {
+  font-weight: 700;
+}

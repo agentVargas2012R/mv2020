@@ -9,7 +9,9 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { GoodReadsComponent } from './good-reads/good-reads.component';
 import { HireComponent } from './hire/hire.component';
 import { Ng2LoadingSpinnerModule } from 'ng2-loading-spinner';
-import { PortfolioComponent } from './portfolio/portfolio.component'
+import { PortfolioComponent } from './portfolio/portfolio.component';
+import { CaseStudyComponent } from './case-study/case-study.component';
+import { FooterComponent } from './footer/footer.component'
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { PortfolioComponent } from './portfolio/portfolio.component'
     HomeComponent,
     GoodReadsComponent,
     HireComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    CaseStudyComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
