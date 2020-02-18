@@ -11,7 +11,8 @@ import { HireComponent } from './hire/hire.component';
 import { Ng2LoadingSpinnerModule } from 'ng2-loading-spinner';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { CaseStudyComponent } from './case-study/case-study.component';
-import { FooterComponent } from './footer/footer.component'
+import { FooterComponent } from './footer/footer.component';
+import { NavigationLinksComponent } from './navigation-links/navigation-links.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FooterComponent } from './footer/footer.component'
     HireComponent,
     PortfolioComponent,
     CaseStudyComponent,
-    FooterComponent
+    FooterComponent,
+    NavigationLinksComponent
   ],
   imports: [
     BrowserModule,
