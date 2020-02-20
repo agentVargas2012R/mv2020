@@ -1,0 +1,26 @@
+.hire-navbar {
+  background: linear-gradient(45deg, #01579B, #002f6C);
+}
+
+.jumbotron-bg-blue {
+  background: linear-gradient(45deg,#000051, #1a237e);
+}
+
+.portfolio-navbar {
+  background: linear-gradient(45deg, #6B0000, #990000);
+}
+
+.jumbotron-bg-red {
+  background: linear-gradient(45deg,#A82626, #B84D4D);
+}
+
+.padding-top {
+  padding-top: 1%
+}
+
+.avatar {
+  width:300px;
+  height:300px;
+  object-fit:cover;
+  border-radius:50%;
+}

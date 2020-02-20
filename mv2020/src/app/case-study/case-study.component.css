@@ -1,13 +1,5 @@
-.portfolio-navbar {
-  background: linear-gradient(45deg, #6B0000, #990000);
-}
-
-.jumbotron-bg {
-  background: linear-gradient(45deg,#A82626, #B84D4D);
-}
-
 .bigFont {
-  font-size: 5rem;
+  font-size: 4.5rem;
 }
 
 .font1 {
@@ -50,10 +42,18 @@
   padding-top: 2%;
 }
 
+.padding-bottom {
+  padding-top: 2%;
+}
+
 .pad-right {
   padding-right: 5px;
 }
 
 .stronger {
   font-weight: 700;
+}
+
+.row-bottom {
+  border-bottom: 1px border #444;
 }

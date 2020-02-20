@@ -13,6 +13,8 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { CaseStudyComponent } from './case-study/case-study.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavigationLinksComponent } from './navigation-links/navigation-links.component';
+import { JumbotronComponent } from './jumbotron/jumbotron.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { NavigationLinksComponent } from './navigation-links/navigation-links.co
     PortfolioComponent,
     CaseStudyComponent,
     FooterComponent,
-    NavigationLinksComponent
+    NavigationLinksComponent,
+    JumbotronComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

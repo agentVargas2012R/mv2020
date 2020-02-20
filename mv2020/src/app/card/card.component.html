@@ -1,0 +1,33 @@
+        <!--Card-->
+        <mdb-card cascade="true" wider="true">
+
+          <!--Card image-->
+          <div class="view view-cascade overlay waves-light" mdbWavesEffect>
+            <mdb-card-img src="{{src}}"></mdb-card-img>
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--/Card image-->
+
+          <mdb-card-body cascade="true" class="text-center">
+            <!--Card content-->
+            <!--Title-->
+            <h4 class="card-title">
+              <strong>{{title}}</strong>
+            </h4>
+            <h5 class="indigo-text">
+              <strong>{{headline}}</strong>
+            </h5>
+
+            <mdb-card-text>
+              {{cardText}}
+            </mdb-card-text>
+
+          </mdb-card-body>
+          <!--/.Card content-->
+
+          <a *ngIf="btnLink" mdbBtn href="{{btnLink}}" color="unique" class="waves-light" mdbWavesEffect>{{action}}</a>
+
+        </mdb-card>
+        <!--/.Card-->

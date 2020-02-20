@@ -1,0 +1,25 @@
+<div class="jumbotron jumbotron-fluid {{jumbotron}}">
+  <div class="container-fluid">
+    <div class="row animated ">
+
+
+      <div *ngIf="profile" class="{{left}}">
+          <img class="avatar" src="{{profile}}" />
+      </div>
+      <!-- <div class="col-lg-12 col-md-12 my-md-5 text-center"> -->
+      <div class="{{right}}">
+              <br/>
+              <h1 class="display-4 text-light {{align}}">
+                  <i class="{{icon1}}"></i><span>{{title}}</span>
+              </h1>
+              <p class="lead text-light font-italic {{align}}">{{subtitle}}</p>
+              <div *ngIf="url">
+                <a target="_blank" href="{{url}}" mdbBtn color="white" outline="true" class="waves-light"   mdbWavesEffect>
+                  <i class="{{icon2}}"></i>  {{btnLabel}}
+                </a>
+              </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -57,3 +57,7 @@
 .background {
   background: linear-gradient(grey, #444);
 }
+
+.padding-bottom {
+  padding-bottom: 2%;
+}

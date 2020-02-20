@@ -6,7 +6,7 @@
 <script src="https://www.amcharts.com/lib/4/plugins/forceDirected.js"></script>
 
 <!--Main Navigation-->
-<header class="intro-header hire-navbar" [ng2-loading]="showSpinner">
+<header class="intro-header {{navbarStyle}}" [ng2-loading]="showSpinner">
 
   <!--Navbar-->
   <mdb-navbar  SideClass="navbar navbar-expand-lg navbar-dark">
@@ -16,23 +16,18 @@
       <app-navigation-links></app-navigation-links>
     </mdb-navbar>
 
-  <div class="jumbotron jumbotron-fluid jumbotron-bg">
-    <div class="container-fluid">
-      <div class="row animated ">
-        <div class="col-lg-3 col-md-3">
-            <img class="avatar" src="../../assets/images/profile.jpg" />
-        </div>
-        <div class="col-lg-9 col-md-9 my-md-5">
-                <br/>
-                <h1 class="display-4 text-light text-left">Here's What I Can Do For You</h1>
-                <p class="lead text-light font-italic text-left">Consulting For Leadership. Strategy For Development. Founded On Best Practice Architecture.</p>
-                <a target="_blank" href="https://docs.google.com/document/d/1-5PsEiavUBqz2TF6rWrpi-53N0w7jd5lSOA2QZ9ARA0/edit?usp=sharing" mdbBtn color="white" outline="true" class="waves-light"   mdbWavesEffect>
-                    My Resume
-                </a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-jumbotron
+      [title]="theTitle"
+      [subtitle]="theSubtitle"
+      [url]="theUrl"
+	    [left]="theLeft"
+	    [right]="thieRight"
+      [btnLabel]="theBtnLabel"
+      [profile]="theProfile"
+      [styles]="theStyles"
+      [jumbotron]="theJumbotron"
+      [align]="theAlign"></app-jumbotron>
+
 </header>
 <div class="container-fluid">
 
