@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
   subtitle: string;
   leads: any[];
   desktop: any[];
+  aDarkNavbar: string = "navbar-light";
+
   constructor() {
       setTimeout(() => {
         this.showSpinner = false;

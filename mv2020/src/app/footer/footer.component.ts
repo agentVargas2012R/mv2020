@@ -9,7 +9,7 @@ import {Footer} from '../footer';
 })
 export class FooterComponent implements OnInit {
 
-  private footer: Footer = new Footer();
+  footer: Footer = new Footer();
   constructor() { }
 
   ngOnInit() {

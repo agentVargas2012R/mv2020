@@ -30,7 +30,7 @@ import { CardComponent } from './card/card.component';
     CardComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     MDBBootstrapModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,

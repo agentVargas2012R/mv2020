@@ -14,6 +14,7 @@ export class PortfolioComponent implements OnInit {
   theLeft: string;
   theRight: string;
   theBtnLabel: string;
+  aDarkNavbar: string ="navbar-dark" ;
 
   portfolioPanels: any[];
 

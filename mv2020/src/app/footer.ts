@@ -1,7 +1,7 @@
 export class Footer {
-  private copyright: string;
-  private poweredBy: string;
-  private company: string;
+   copyright: string;
+   poweredBy: string;
+   company: string;
 
   public setCopyright(copyright: string){
     this.copyright = copyright;

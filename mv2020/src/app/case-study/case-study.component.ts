@@ -20,12 +20,13 @@ export class CaseStudyComponent implements OnInit {
   fontAwesome1: string;
   fontAwesome2: string;
   caseStudyPanels: any[];
+  aDarkNavbar: string ="navbar-dark" ;
 
   constructor() { }
 
   ngOnInit() {
 
-    this.theTitle = "Here's What I Can Do For You";
+    this.theTitle = "Serverless Architecture";
     this.theSubtitle = "How I Convinced Redzone";
     this.theUrl = "https://docs.google.com/document/d/1-5PsEiavUBqz2TF6rWrpi-53N0w7jd5lSOA2QZ9ARA0/edit?usp=sharing";
     //this.theLeft = "col-lg-3 col-md-3";
@@ -61,7 +62,7 @@ export class CaseStudyComponent implements OnInit {
         "desc3"       :   `Upper Management and Development Engineering that this venture was worth going for.`
       },
       {
-        "animation" :   "delay-5s",
+        "animation" :   "delay-5=4s",
         "fontColor" :     "text-success",
         "heading"   :     "The Result",
         "icon"         :    "fas fa-check",

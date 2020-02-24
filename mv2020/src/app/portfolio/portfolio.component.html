@@ -8,13 +8,7 @@
 <!--Main Navigation-->
 <header class="intro-header portfolio-navbar">
 
-  <!--Navbar-->
-  <mdb-navbar  SideClass="navbar navbar-expand-lg navbar-dark">
-    <mdb-navbar-brand>
-      <a class="logo navbar-brand waves-light" mdbWavesEffect href="#"><strong>Who's This Guy?</strong></a>
-    </mdb-navbar-brand>
-    <app-navigation-links></app-navigation-links>
-  </mdb-navbar>
+  <app-navigation-links  [darkNavBar]="aDarkNavbar"></app-navigation-links>
 
   <div class="jumbotron jumbotron-fluid jumbotron-bg">
     <div class="container-fluid">
@@ -50,7 +44,7 @@
 
   <!-- ROW START ROW 1-->
   <div class="row padding-top seperator"  *ngFor="let caseStudy of portfolioPanels">
-    <div class="col-md-5 text-center">
+    <div class="col-md-6 col-xs-12 text-center">
         <!-- Image Effect START-->
           <a href="{{caseStudy.site}}" target="blank" title="{{caseStudy.name}}">
             <div class="view {{caseStudy.snapshot}}" data-jarallax='{"speed": 0.2}'>
@@ -63,7 +57,7 @@
           </a>
           <!-- Image effect END-->
     </div>
-    <div class="col-md-7 text-left dark border {{caseStudy.headingColor}}">
+    <div class="col-md-6 text-left dark border {{caseStudy.headingColor}}">
       <div class="site-heading ">
           <i class="{{caseStudy.icon}}"></i> {{caseStudy.alias}}
       </div>

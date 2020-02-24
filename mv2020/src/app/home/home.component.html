@@ -3,15 +3,9 @@
   </head>
 
 <!--Main Navigation-->
-<header class="intro-header" [ng2-loading]="showSpinner">
+<header class="intro-header home" [ng2-loading]="showSpinner">
 
-  <!--Navbar-->
-  <mdb-navbar  SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
-    <mdb-navbar-brand>
-      <a class="logo navbar-brand waves-light" mdbWavesEffect href="#"><strong>Who's This Guy?</strong></a>
-    </mdb-navbar-brand>
-      <app-navigation-links></app-navigation-links>
-    </mdb-navbar>
+  <app-navigation-links  [darkNavBar]="aDarkNavbar"></app-navigation-links>
 
   <!-- Intro Section -->
   <div class="img-container">

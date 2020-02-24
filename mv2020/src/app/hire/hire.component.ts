@@ -51,6 +51,7 @@ export class HireComponent implements OnInit {
   theStyles:string;
   theJumbotron: string;
   theAlign:string;
+  aDarkNavbar: string ="navbar-dark" ;
 
   analyticsService: AnalyticsService;
 
@@ -63,7 +64,7 @@ export class HireComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.theTitle = "Serverless Architecture";
+    this.theTitle = "Here's What I Can Do For You";
     this.theSubtitle = "Consulting For Leadership. Strategy For Development. Founded On Best Practice Architecture.";
     this.theUrl = "https://docs.google.com/document/d/1-5PsEiavUBqz2TF6rWrpi-53N0w7jd5lSOA2QZ9ARA0/edit?usp=sharing";
     this.theLeft = "col-lg-3 col-md-3";

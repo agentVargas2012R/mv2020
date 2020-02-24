@@ -8,20 +8,14 @@
 <!--Main Navigation-->
 <header class="intro-header {{navbarStyle}}" [ng2-loading]="showSpinner">
 
-  <!--Navbar-->
-  <mdb-navbar  SideClass="navbar navbar-expand-lg navbar-dark">
-    <mdb-navbar-brand>
-      <a class="logo navbar-brand waves-light" mdbWavesEffect href="#"><strong>Who's This Guy?</strong></a>
-    </mdb-navbar-brand>
-      <app-navigation-links></app-navigation-links>
-    </mdb-navbar>
+  <app-navigation-links  [darkNavBar]="aDarkNavbar"></app-navigation-links>
 
   <app-jumbotron
       [title]="theTitle"
       [subtitle]="theSubtitle"
       [url]="theUrl"
 	    [left]="theLeft"
-	    [right]="thieRight"
+	    [right]="theRight"
       [btnLabel]="theBtnLabel"
       [profile]="theProfile"
       [styles]="theStyles"
@@ -209,7 +203,7 @@
     </div>
      <!-- -->
     <div class="row padding-top animated ">
-      <div class="col-md-6">
+      <div class="col-md-6 col-xs-12">
             <!--Card-->
             <mdb-card cascade="true" wider="true">
 
@@ -233,7 +227,7 @@
             <!--/.Card-->
         </div>
         <!-- CREDENTAILS START-->
-        <div class="col-md-6">
+        <div class="col-md-6 col-xs-12">
             <!--Card-->
             <mdb-card cascade="true" wider="true">
 

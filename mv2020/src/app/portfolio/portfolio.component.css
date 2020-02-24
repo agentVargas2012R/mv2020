@@ -12,7 +12,7 @@
     background-blend-mode: saturation;
     opacity: .9;
     background-repeat: no-repeat;
-    min-height: 100%;
+    min-height: 74vh;
     min-width: 100%;
     border-radius: 5px;
     transition: transform .2s;
@@ -22,13 +22,13 @@
   background: linear-gradient(
     rgba(20,20,20, .5),
     rgba(20,20,20, .5)),
-    url("../../assets/images/rz.jpg");
+    url("../../assets/images/rz3.jpg");
 
     background-size: cover;
     background-blend-mode: saturation;
     opacity: .9;
     background-repeat: no-repeat;
-    min-height: 50vh;
+    min-height: 74vh;
     min-width: 100%;
     border-radius: 5px;
     transition: transform .2s;
@@ -44,7 +44,7 @@
     background-blend-mode: saturation;
     opacity: .9;
     background-repeat: no-repeat;
-    min-height: 50vh;
+    min-height: 74vh;
     min-width: 100%;
     border-radius: 5px;
     transition: transform .2s;

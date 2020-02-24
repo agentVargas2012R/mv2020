@@ -7,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GoodReadsComponent implements OnInit {
 
-  private showSpinner: boolean = true;
+  showSpinner: boolean = true;
   quote: string;
   leader: string;
   headingQuote: string;
+  aDarkNavbar: string ="navbar-dark" ;
 
   deck1: any[];
   deck2: any[];
