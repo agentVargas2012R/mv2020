@@ -7,7 +7,8 @@
 }
 
 .jarallax1 {
-    background: url("../../assets/images/ltp.jpg");
+    /*background: url("../../assets/images/ltp.jpg");*/
+    background: url("https://via.placeholder.com/320");
     background-size: cover;
     background-blend-mode: saturation;
     opacity: .9;
@@ -22,7 +23,7 @@
   background: linear-gradient(
     rgba(20,20,20, .5),
     rgba(20,20,20, .5)),
-    url("../../assets/images/rz3.jpg");
+    url("../../assets/images/rz3-min.jpg");
 
     background-size: cover;
     background-blend-mode: saturation;

@@ -2,6 +2,7 @@ export class Footer {
    copyright: string;
    poweredBy: string;
    company: string;
+   year: Date = new Date();
 
   public setCopyright(copyright: string){
     this.copyright = copyright;

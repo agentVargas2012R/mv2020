@@ -67,8 +67,8 @@ export class HireComponent implements OnInit {
     this.theTitle = "Here's What I Can Do For You";
     this.theSubtitle = "Consulting For Leadership. Strategy For Development. Founded On Best Practice Architecture.";
     this.theUrl = "https://docs.google.com/document/d/1-5PsEiavUBqz2TF6rWrpi-53N0w7jd5lSOA2QZ9ARA0/edit?usp=sharing";
-    this.theLeft = "col-lg-3 col-md-3";
-    this.theRight = "col-lg-9 col-md-9 my-md-5";
+    this.theLeft = "col-lg-3 col-md-3 landscape-md-3";
+    this.theRight = "col-lg-6 col-md-4 landscape-md-6 my-md-5";
     this.theBtnLabel = "My Resume";
     this.theProfile = "../../assets/images/profile.jpg"
     this.navbarStyle = "hire-navbar";
@@ -87,12 +87,16 @@ export class HireComponent implements OnInit {
       this.createSkillsChart();
       this.createAcademicChart();
       this.createBackEndChart();
+
+      //fucks up browser. need to fix this.
       this.createAppServerChart();
+
       this.createToolChart();
       this.createCloudsChart();
       this.createDay2DayChart();
       this.createCredentialsChart();
       this.createForceKeywordDirectedGraph();
+
     });
   }
 
@@ -169,14 +173,26 @@ export class HireComponent implements OnInit {
     categoryAxis.renderer.grid.template.location = 0;
     categoryAxis.renderer.minGridDistance = 5 ;
 
-    /*
-    categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
-      if (target.dataItem && target.dataItem.index) {
-        return dy + 25;
-      }
-      return dy;
+    //create label
+    var label = categoryAxis.renderer.labels.template;
+    label.truncate = true;
+    label.maxWidth = 200;
+
+    categoryAxis.events.on("sizechanged", function(ev) {
+        let axis = ev.target;
+        var cellWidth = axis.pixelWidth / (axis.endIndex - axis.startIndex);
+        if (cellWidth < axis.renderer.labels.template.maxWidth) {
+          axis.renderer.labels.template.rotation = -45;
+          axis.renderer.labels.template.horizontalCenter = "right";
+          axis.renderer.labels.template.verticalCenter = "middle";
+        }
+        else {
+          axis.renderer.labels.template.rotation = 0;
+          axis.renderer.labels.template.horizontalCenter = "middle";
+          axis.renderer.labels.template.verticalCenter = "top";
+        }
     });
-*/
+
     var valueAxis2 = skillChart.yAxes.push(new am4charts.ValueAxis());
 
 
@@ -200,17 +216,6 @@ export class HireComponent implements OnInit {
     this.skillChart = skillChart;
   }
 
-  toggleAxes(ev) {
-    let axis = ev.target.yAxis;
-    let disabled = true;
-    axis.series.each(function(series) {
-      if (!series.isHiding && !series.isHidden) {
-        disabled = false;
-      }
-    });
-    axis.disabled = disabled;
-  }
-
   createAcademicChart() {
       //academicDiv
       let academicChart = am4core.create("academicDiv", am4charts.XYChart3D);
@@ -221,7 +226,6 @@ export class HireComponent implements OnInit {
       // Create axes
       var academicChartAxis = academicChart.yAxes.push(new am4charts.CategoryAxis());
       academicChartAxis.dataFields.category = "framework";
-      //academicChartAxis.numberFormatter.numberFormat = "#";
       academicChartAxis.renderer.inversed = true;
 
       var  academicChartValueAxis = academicChart.xAxes.push(new am4charts.ValueAxis());
@@ -256,6 +260,7 @@ export class HireComponent implements OnInit {
 
     var  backEndChartAxisValueAxis = backEndChart.xAxes.push(new am4charts.ValueAxis());
 
+
     // Create series
     var academicSeries = backEndChart.series.push(new am4charts.ColumnSeries3D());
     academicSeries.dataFields.valueX = "years";
@@ -271,48 +276,29 @@ export class HireComponent implements OnInit {
   }
 
   createAppServerChart() {
-    //XY Bar Chart
-    let appServerChart = am4core.create("appServerDiv" , am4charts.XYChart);
+        let backEndChart = am4core.create("appServerDiv", am4charts.XYChart3D);
 
-    // Add data
-    appServerChart.data = this.analyticsService.getAppServerChart();
+        // Add data
+        backEndChart.data = this.analyticsService.getAppServerChart(backEndChart);
 
-    // Create axes
+        var backEndChartAxis = backEndChart.yAxes.push(new am4charts.CategoryAxis());
+        backEndChartAxis.dataFields.category = "skill";
+        backEndChartAxis.renderer.inversed = true;
 
-    var categoryAxis = appServerChart.xAxes.push(new am4charts.CategoryAxis());
-    categoryAxis.dataFields.category = "skill";
-    categoryAxis.renderer.grid.template.location = 0;
-    categoryAxis.renderer.minGridDistance = 5 ;
+        var  backEndChartAxisValueAxis = backEndChart.xAxes.push(new am4charts.ValueAxis());
 
-    /*
-    categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
-      if (target.dataItem && target.dataItem.index) {
-        return dy + 25;
-      }
-      return dy;
-    });
-*/
-    var valueAxis2 = appServerChart.yAxes.push(new am4charts.ValueAxis());
+        // Create series
+        var academicSeries = backEndChart.series.push(new am4charts.ColumnSeries3D());
+        academicSeries.dataFields.valueX = "years";
+        academicSeries.dataFields.categoryY = "skill";
+        academicSeries.name = "Application Servers";
+        academicSeries.columns.template.propertyFields.fill = "color";
+        academicSeries.columns.template.tooltipText = "{skill}, {valueX} years";
+        academicSeries.columns.template.column3D.stroke = am4core.color("#fff");
+        academicSeries.columns.template.column3D.strokeOpacity = 0.2;
+        academicSeries.minBulletDistance = 20;
 
-
-    var skillSeries = appServerChart.series.push(new am4charts.ColumnSeries());
-    skillSeries.dataFields.valueY = "years";
-    skillSeries.dataFields.categoryX = "skill";
-    skillSeries.name = "years";
-    skillSeries.columns.template.tooltipText = "{description}: [bold]{valueY} Years[/]";
-    skillSeries.columns.template.fillOpacity = .8;
-    //skillSeries.events.on("hidden", this.toggleAxes);
-    //skillSeries.events.on("shown", this.toggleAxes);
-
-    skillSeries.minBulletDistance = 10;
-    var columnTemplate = skillSeries.columns.template;
-    columnTemplate.strokeWidth = 1;
-
-    skillSeries.columns.template.adapter.add("fill", function(fill, target) {
-      return appServerChart.colors.getIndex(target.dataItem.index);
-    });
-
-    this.appServerChart = appServerChart;
+        this.appServerChart = backEndChart;
   }
 
   createToolChart() {
@@ -330,15 +316,27 @@ export class HireComponent implements OnInit {
       categoryAxis.renderer.grid.template.location = 0;
       categoryAxis.renderer.minGridDistance = 5 ;
 
-      /*
-      categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
-        if (target.dataItem && target.dataItem.index) {
-          return dy + 25;
+     //create label
+    var label = categoryAxis.renderer.labels.template;
+    label.truncate = true;
+    label.maxWidth = 200;
+
+    categoryAxis.events.on("sizechanged", function(ev) {
+        let axis = ev.target;
+        var cellWidth = axis.pixelWidth / (axis.endIndex - axis.startIndex);
+        if (cellWidth < axis.renderer.labels.template.maxWidth) {
+          axis.renderer.labels.template.rotation = -45;
+          axis.renderer.labels.template.horizontalCenter = "right";
+          axis.renderer.labels.template.verticalCenter = "middle";
         }
-        return dy;
-      });
-    */
-      var valueAxis2 = toolsChart.yAxes.push(new am4charts.ValueAxis());
+        else {
+          axis.renderer.labels.template.rotation = 0;
+          axis.renderer.labels.template.horizontalCenter = "middle";
+          axis.renderer.labels.template.verticalCenter = "top";
+        }
+    });
+
+   var valueAxis2 = toolsChart.yAxes.push(new am4charts.ValueAxis());
 
 
       var skillSeries = toolsChart.series.push(new am4charts.ColumnSeries());
@@ -374,14 +372,25 @@ export class HireComponent implements OnInit {
     categoryAxis.renderer.grid.template.location = 0;
     categoryAxis.renderer.minGridDistance = 5 ;
 
-    /*
-    categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
-      if (target.dataItem && target.dataItem.index) {
-        return dy + 25;
-      }
-      return dy;
+    var label = categoryAxis.renderer.labels.template;
+    label.truncate = true;
+    label.maxWidth = 200;
+
+    categoryAxis.events.on("sizechanged", function(ev) {
+        let axis = ev.target;
+        var cellWidth = axis.pixelWidth / (axis.endIndex - axis.startIndex);
+        if (cellWidth < axis.renderer.labels.template.maxWidth) {
+          axis.renderer.labels.template.rotation = -45;
+          axis.renderer.labels.template.horizontalCenter = "right";
+          axis.renderer.labels.template.verticalCenter = "middle";
+        }
+        else {
+          axis.renderer.labels.template.rotation = 0;
+          axis.renderer.labels.template.horizontalCenter = "middle";
+          axis.renderer.labels.template.verticalCenter = "top";
+        }
     });
-  */
+
     var valueAxis2 = cloudsChart.yAxes.push(new am4charts.ValueAxis());
 
 
@@ -486,4 +495,5 @@ export class HireComponent implements OnInit {
     forceDirectedTreeNetworkSeries.data = this.analyticsService.getForceDirectedTreeData();
     this.keyWordChart = forceDirectedTreeChart;
   }
+
 }

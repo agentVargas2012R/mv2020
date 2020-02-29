@@ -24,3 +24,20 @@
   object-fit:cover;
   border-radius:50%;
 }
+
+@media only screen and (orientation: landscape) {
+  .avatar {
+    width:200px;
+    height:200px;
+    object-fit:cover;
+    border-radius:50%;
+  }
+
+  .landscape-md-6 {
+    width: 67%;
+  }
+
+  .landscape-md-3 {
+    width: 33%;
+  }
+}

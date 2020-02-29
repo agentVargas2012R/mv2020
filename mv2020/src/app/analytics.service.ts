@@ -136,40 +136,48 @@ export class AnalyticsService {
     }];
   }
 
-  public getAppServerChart() {
+  public getAppServerChart(backEndChart) {
     return [
       {
         "skill": "NodeJS",
         "description" : "Node JS App Server",
-        "years": 8
+        "years": 8,
+        "color": backEndChart.colors.next()
       }, {
         "skill": "Tomcat",
         "description" : "Apache Tomcat Server",
-        "years": 14
+        "years": 14,
+        "color": backEndChart.colors.next()
       }, {
         "skill": "JBoss",
         "description" : "Redhat JBOSS Server",
-        "years": 10
+        "years": 10,
+        "color": backEndChart.colors.next()
       }, {
         "skill": "WebLogic",
         "description" : "Oracle's WebLogic Server",
-        "years": 4
+        "years": 4,
+        "color": backEndChart.colors.next()
       }, {
         "skill": "WAS",
         "description" : "IBM Websphere Application Server",
-        "years": 8
+        "years": 8,
+        "color": backEndChart.colors.next()
       }, {
         "skill": "BPM",
         "description" : "IBM Process Server",
-        "years": 8
+        "years": 8,
+        "color": backEndChart.colors.next()
       }, {
         "skill": "Resin",
         "description" : "Caucho Resin Server",
-        "years": 8
+        "years": 8,
+        "color": backEndChart.colors.next()
       }, {
         "skill": "Terracotta",
         "description" : "Big Memory/Terracotta Server",
-        "years": 10
+        "years": 10,
+        "color": backEndChart.colors.next()
       }
     ];
   }
@@ -370,7 +378,7 @@ export class AnalyticsService {
                 "value":200
             },
             {
-                "name":"Teraacotta",
+                "name":"Teracotta",
                 "value":900
             },
             {
