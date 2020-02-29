@@ -25,7 +25,16 @@
   border-radius:50%;
 }
 
-@media only screen and (orientation: landscape) {
+.pad-right {
+  padding-right: 5px;
+}
+
+/*
+* Landscapes
+*/
+
+/* Galaxy S5: 640 x 360*/
+@media screen and (orientation: landscape)  and (min-width: 360px) and (max-width: 640px) {
   .avatar {
     width:200px;
     height:200px;
@@ -34,10 +43,195 @@
   }
 
   .landscape-md-6 {
-    width: 67%;
+    width: 66%;
   }
 
   .landscape-md-3 {
     width: 33%;
   }
+
+  .display-4 {
+    font-size: 2.5rem
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+
+}
+
+@media screen and (orientation: landscape)  and (min-width: 411px) and (max-width: 731px) {
+  .avatar {
+    width:200px;
+    height:200px;
+    object-fit:cover;
+    border-radius:50%;
+  }
+
+  .landscape-md-6 {
+    width: 66%;
+  }
+
+  .landscape-md-3 {
+    width: 33%;
+  }
+
+  .display-4 {
+    font-size: 2.5rem
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+
+}
+
+@media screen and (orientation: landscape)  and (min-width: 411px) and (max-width: 823px) {
+  .avatar {
+    width:200px;
+    height:200px;
+    object-fit:cover;
+    border-radius:50%;
+  }
+
+  .landscape-md-6 {
+    width: 66%;
+  }
+
+  .landscape-md-3 {
+    width: 33%;
+  }
+
+  .display-4 {
+    font-size: 2.5rem
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+
+  .col-md-4 {
+    flex: 0 0 70.33%;
+    max-width: 100%;
+  }
+}
+
+/* iPhone 5/SE 568 x 320*/
+@media screen and (orientation: landscape)  and (min-width: 320px) and (max-width: 568px) {
+  .avatar {
+    width:175px;
+    height:175px;
+    object-fit:cover;
+    border-radius:50%;
+  }
+
+  .landscape-md-6 {
+    width: 66%;
+  }
+
+  .landscape-md-3 {
+    width: 33%;
+  }
+
+  .display-4 {
+    font-size: 1rem
+  }
+
+  .lead {
+    font-size: .75rem;
+  }
+
+  .col-md-4 {
+    flex: 0 0 66.33%;
+    max-width: 100%;
+  }
+}
+
+/* iPhone X: 812 by 375 */
+@media screen and (orientation: landscape)  and (min-width: 375px) and (max-width: 812px) {
+  .avatar {
+    width:175px;
+    height:175px;
+    object-fit:cover;
+    border-radius:50%;
+  }
+
+  .landscape-md-6 {
+    width: 66%;
+  }
+
+  .landscape-md-3 {
+    width: 33%;
+  }
+
+  .display-4 {
+    font-size: 1rem
+  }
+
+  .lead {
+    font-size: .75rem;
+  }
+
+  .col-md-4 {
+    flex: 0 0 66.33%;
+    max-width: 100%;
+  }
+}
+
+/* iPad */
+@media screen and (orientation: landscape)  and (min-width: 768px) and (max-width: 1024px) {
+  .avatar {
+    width: 200px;
+    height: 200px;
+    object-fit:cover;
+    border-radius:50%;
+  }
+
+  .landscape-md-6 {
+    width: 66%;
+  }
+
+  .landscape-md-3 {
+    width: 33%;
+  }
+
+  .col-md-4 {
+    flex: 0 0 66.33%;
+    max-width: 100%;
+    padding-left: 6%;
+  }
+
+  .creds {
+    display: none !important;
+  }
+
+  .daily {
+    flex: 0 0 100%;
+    min-width: 100%;
+  }
+}
+
+
+@media screen and (orientation: landscape)  and (min-width: 1024px) and (max-width: 1366px) {
+  .avatar {
+    width: 300px;
+    height: 300px;
+    object-fit:cover;
+    border-radius:50%;
+  }
+
+  .landscape-md-6 {
+    width: 66%;
+  }
+
+  .landscape-md-3 {
+    width: 33%;
+  }
+
+  .col-md-4 {
+    flex: 0 0 66.33%;
+    max-width: 100%;
+  }
+
+
 }

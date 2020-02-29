@@ -17,22 +17,89 @@ body {
   background-color: #78909c !important;
 }
 .view {
-  height: 100vh !important;
+  height: 100vh;
 }
 .navbar:not(.top-nav-collapse) {
   background: transparent !important;
 }
-@media (min-width: 768px) {
+
+
+.jarallax {
+
+  background: linear-gradient(
+    rgba(20,20,20, .5),
+    rgba(20,20,20, .5)),
+    url("../../assets/images/surfin.jpg");
+
+    background-size: cover;
+    background-blend-mode: saturation;
+    opacity: .9;
+    background-repeat: no-repeat;
+}
+
+.mobile {
+  animation-duration: 1s;
+}
+
+.padding-top-5 {
+  padding-top: 5%;
+}
+
+/**
+* Portaits
+*/
+
+/*Galaxy S5: 640 x 360 */
+@media (min-width: 640px) and (max-width: 767px) and (orientation: portrait) {
+  header {
+    height: 80%;
+  }
+}
+
+/*iPad Pro*/
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  .text-container {
+    padding-top: 10%;
+  }
+}
+
+@media (min-width: 768px)  and (orientation: portrait){
   .navbar:not(.top-nav-collapse) {
     background: #78909c !important;
   }
 
+  .padding-top-25 {
+    padding-top: 35%;
+  }
+
+  .img-container {
+    background-color: #000000;
+  }
+
+  .intro-header {
+    /*height: unset !important;*/
+  }
+  .top-nav-collapse {
+    background-color: #78909c !important;
+  }
+  .view {
+    height: 100vh !important;
+  }
+  .navbar:not(.top-nav-collapse) {
+    background: transparent !important;
+  }
+
   .backdrop {
-    background: linear-gradient(white, white);
+    background:  linear-gradient(white, white);
     border-radius: 5px;
     padding: 2%;
   }
+
+  .jarallax {
+    padding-top: 15%;
+  }
 }
+
 h1 {
   letter-spacing: 8px;
 }
@@ -48,6 +115,7 @@ h5 {
   #title {
     color: white;
   }
+
 
   .full-height,
   .full-height body,
@@ -83,51 +151,33 @@ h5 {
   .desktop {
     display:none;
   }
-}
-
-.white-text {
-
-}
-
-.jarallax {
-
-  background: linear-gradient(
-    rgba(20,20,20, .5),
-    rgba(20,20,20, .5)),
-    url("../../assets/images/surfin.jpg");
-
-    background-size: cover;
-    background-blend-mode: saturation;
-    opacity: .9;
-    background-repeat: no-repeat;
-}
-
-.mobile {
-  animation-duration: 1s;
-}
-
-.padding-top-5 {
-  padding-top: 5%;
-}
-
-
-@media only screen  and (min-width: 300px) and (max-width: 767px) and (orientation: landscape) {
 
   .jarallax {
-
-    background: linear-gradient(
-      rgba(20,20,20, .5),
-      rgba(20,20,20, .5)),
-      url("../../assets/images/surfin.jpg");
-
-      background-size: cover;
-      background-blend-mode: saturation;
-      opacity: .8;
-      background-repeat: no-repeat;
+    margin-bottom: 5px;
   }
 
+}
+
+@media screen and (min-width: 1024px) and (orientation: portrait)  {
+  .backdrop {
+    background:  linear-gradient(white, white);
+    border-radius: 5px;
+    padding: 2%;
+  }
+}
+
+/**
+* Landscapes
+*/
+
+/*Galaxy S5 640 by 360*/
+@media screen and (orientation: landscape)  and (min-width: 360px) and (max-width: 640px) {
   header {
-    height: 106%;
+    height: 115%;
+  }
+
+  h1, h5 {
+    color: black;
   }
 
   h1 {
@@ -140,7 +190,148 @@ h5 {
     font-size: .75rem;
   }
 
+  .backdrop {
+    background:  linear-gradient(white, white);
+    border-radius: 5px;
+  }
+
   .desktop {
     display:none;
   }
 }
+
+/* Pixel2 731 x 411 */
+@media screen and (orientation: landscape)  and (min-width: 411px) and (max-width: 731px) {
+  header {
+    height: 115%;
+  }
+
+  h1, h5 {
+    color: black;
+  }
+
+  h1 {
+    font-weight: 300;
+    font-size: 1.5rem;
+  }
+
+  h5 {
+    font-weight: 400;
+    font-size: .75rem;
+  }
+
+  .backdrop {
+    background:  linear-gradient(white, white);
+    border-radius: 5px;
+  }
+
+  .desktop {
+    display:none;
+  }
+}
+
+/* Pixel 2xl 823 x 411*/
+@media screen and (orientation: landscape)  and (min-width: 411px) and (max-width: 823px) {
+  header {
+    height: 114%;
+  }
+
+  h1, h5 {
+    color: black;
+  }
+
+  h1 {
+    font-weight: 300;
+    font-size: 1.5rem;
+  }
+
+  h5 {
+    font-weight: 400;
+    font-size: .75rem;
+  }
+
+  .backdrop {
+    background:  linear-gradient(white, white);
+    border-radius: 5px;
+  }
+
+  .desktop {
+    display:none;
+  }
+}
+
+
+
+/* iPhone 5/SE 568 x 320*/
+@media screen and (orientation: landscape)  and (min-width: 320px) and (max-width: 568px) {
+  header {
+    height: 135%;
+  }
+
+  h1, h5 {
+    color: black;
+  }
+
+  h1 {
+    font-weight: 300;
+    font-size: 1.5rem;
+  }
+
+  h5 {
+    font-weight: 400;
+    font-size: .75rem;
+  }
+
+  .backdrop {
+    background:  none;
+    border-radius: 5px;
+  }
+
+  .desktop {
+    display:none;
+  }
+}
+
+/* iPhone X: 812 by 375 */
+@media screen and (orientation: landscape)  and (min-width: 375px) and (max-width: 812px) {
+  header {
+    height: 121%;
+  }
+
+  h1, h5 {
+    color: black;
+  }
+
+  h1 {
+    font-weight: 300;
+    font-size: 1.5rem;
+  }
+
+  h5 {
+    font-weight: 400;
+    font-size: .75rem;
+  }
+
+  .backdrop {
+    background:  linear-gradient(white, white);
+    border-radius: 5px;
+  }
+
+  .desktop {
+    display:none;
+  }
+
+  .view {
+    height: 108vh;
+  }
+}
+
+/* iPad+ : 1024 */
+@media screen and (orientation: landscape)  and (min-width: 1024px) {
+  .backdrop {
+    background:  linear-gradient(white, white);
+    border-radius: 5px;
+  }
+
+}
+

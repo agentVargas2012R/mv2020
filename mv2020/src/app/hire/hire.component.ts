@@ -67,7 +67,7 @@ export class HireComponent implements OnInit {
     this.theTitle = "Here's What I Can Do For You";
     this.theSubtitle = "Consulting For Leadership. Strategy For Development. Founded On Best Practice Architecture.";
     this.theUrl = "https://docs.google.com/document/d/1-5PsEiavUBqz2TF6rWrpi-53N0w7jd5lSOA2QZ9ARA0/edit?usp=sharing";
-    this.theLeft = "col-lg-3 col-md-3 landscape-md-3";
+    this.theLeft = "col-lg-3 col-md-3 landscape-md-3 my-md-5";
     this.theRight = "col-lg-6 col-md-4 landscape-md-6 my-md-5";
     this.theBtnLabel = "My Resume";
     this.theProfile = "../../assets/images/profile.jpg"

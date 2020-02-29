@@ -34,7 +34,7 @@ export class CaseStudyComponent implements OnInit {
     this.theBtnLabel = "My Definitive Guide";
     this.theJumbotron = "jumbotron-bg-red";
     this.theAlign = " text-center";
-    this.fontAwesome1 = "fas fa-server";
+    this.fontAwesome1 = "fas fa-server pad-right";
     this.fontAwesome2 = "fas fa-book";
 
     this.caseStudyPanels = [
@@ -47,7 +47,9 @@ export class CaseStudyComponent implements OnInit {
           "bullet2"     :    "Engage:",
           "desc2"       :    `The entire audience about the possibilities with Serverless Technologies and how it can position the Business.`,
           "bullet3"     :    "Elevate:",
-          "desc3"       :   `Does the current approach, strategy and overall capacities of systems which include monetary, individual and systematic constraints, meet the future needs of the business?`
+          "desc3"       :   `Does the current approach, strategy and overall capacities of systems which include monetary, individual and systematic constraints, meet the future needs of the business?`,
+          "effect1"     :   "animated lightSpeedIn"
+
       },
       {
         "animation" :   "delay-2s",
@@ -59,10 +61,11 @@ export class CaseStudyComponent implements OnInit {
         "bullet2"     :    "Comparative Analysis: ",
         "desc2"       :    `Discuss the key differences between traditional cloud methodologies and the benefits and drawbacks of a serverless technology.`,
         "bullet3"     :    "Convince:",
-        "desc3"       :   `Upper Management and Development Engineering that this venture was worth going for.`
+        "desc3"       :   `Upper Management and Development Engineering that this venture was worth going for.`,
+        "effect1"     :   "animated delay-2s lightSpeedIn"
       },
       {
-        "animation" :   "delay-5=4s",
+        "animation" :   "delay-4s",
         "fontColor" :     "text-success",
         "heading"   :     "The Result",
         "icon"         :    "fas fa-check",
@@ -71,7 +74,8 @@ export class CaseStudyComponent implements OnInit {
         "bullet2"     :    "DevOps: ",
         "desc2"       :    `By significantly reducing overhead cost from traditional resources, DevOps and Dev Teams Resources could focus on Business Innovations instead of a keeping-the-lights-on mentality. `,
         "bullet3"     :    "Dynamic Performance:",
-        "desc3"       :   `Performance of the application more than halved once cache aside and lambda concurrency was in affect resulting in less than 3 second searches while dealing with higher levels of peak traffic.`
+        "desc3"       :   `Performance of the application more than halved once cache aside and lambda concurrency was in affect resulting in less than 3 second searches while dealing with higher levels of peak traffic.`,
+        "effect1"     :   "animated delay-4s lightSpeedIn"
       }
     ];
   }

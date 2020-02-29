@@ -20,6 +20,7 @@ export class JumbotronComponent implements OnInit {
   @Input() align: string;
   @Input() icon1: string;
   @Input() icon2: string;
+  @Input() effect1: string;
 
   constructor() { }
 

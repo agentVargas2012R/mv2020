@@ -14,13 +14,13 @@
         <div class="container flex-center">
           <div class="row  padding-top-25">
             <div class="col-md-12 mobile animated fadeInUp">
-              <div class="text-center ">
+              <div class="text-center text-container">
                 <h2 class="h1 h1-reponsive white-text font-up font-bold mb-3 wow fadeInDown" data-wow-delay="0.3s">
                 <strong id="title">{{title}}</strong></h2>
                 <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
                 <h5 class="font-up mb-5 white-text wow fadeInDown backdrop description" data-wow-delay="0.4s">
                     <strong>
-                      <p *ngFor="let lead of leads" >{{lead}}</p>
+                      <p class="lead1" *ngFor="let lead of leads" >{{lead}}</p>
                     </strong>
                     <strong class="desktop">
                       <p *ngFor="let item of desktop" >{{item}}</p>
