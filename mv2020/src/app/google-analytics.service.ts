@@ -15,7 +15,7 @@ export class GoogleAnalyticsService {
   public eventEmitter(eventCategory: string, eventAction: string,
                                   eventLabel: string = null) {
 
-        ga('create', 'UA-69263787-2', 'auto');
+        ga('create', 'UA-69263787-2R', 'auto');
         ga('send', {
           hitType: 'event',
           eventCategory: eventCategory,
