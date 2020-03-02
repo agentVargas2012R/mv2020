@@ -15,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavigationLinksComponent } from './navigation-links/navigation-links.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { CardComponent } from './card/card.component';
+import {GoogleAnalyticsService} from "./google-analytics.service";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { CardComponent } from './card/card.component';
     BrowserAnimationsModule,
     Ng2LoadingSpinnerModule.forRoot({})
   ],
-  providers: [],
+  providers: [GoogleAnalyticsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

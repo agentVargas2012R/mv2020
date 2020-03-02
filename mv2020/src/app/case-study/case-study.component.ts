@@ -28,7 +28,7 @@ export class CaseStudyComponent implements OnInit {
 
     this.theTitle = "Serverless Architecture";
     this.theSubtitle = "How I Convinced Redzone";
-    this.theUrl = "https://docs.google.com/document/d/1-5PsEiavUBqz2TF6rWrpi-53N0w7jd5lSOA2QZ9ARA0/edit?usp=sharing";
+    this.theUrl = "https://drive.google.com/file/d/1GMin1nxaZS8B-LcL__vvnXCqE2qF6E_y/view?usp=sharing";
     //this.theLeft = "col-lg-3 col-md-3";
     this.theRight = "col-lg-12 col-md-12 my-md-5 text-center";
     this.theBtnLabel = "My Definitive Guide";

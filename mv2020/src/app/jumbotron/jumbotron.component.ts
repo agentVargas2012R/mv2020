@@ -1,4 +1,7 @@
 import { ViewEncapsulation, Component, OnInit, Input } from '@angular/core';
+import {Router} from '@angular/router';
+
+import {GoogleAnalyticsService} from '../google-analytics.service';
 
 @Component({
   selector: 'app-jumbotron',
@@ -21,10 +24,15 @@ export class JumbotronComponent implements OnInit {
   @Input() icon1: string;
   @Input() icon2: string;
   @Input() effect1: string;
+  route: Router;
 
-  constructor() { }
+  constructor(public googleAnalyticsService: GoogleAnalyticsService) { }
 
   ngOnInit() {
+
   }
 
+  sendEvent() {
+    this.googleAnalyticsService.eventEmitter(this.btnLabel, "click", this.url);
+  }
 }

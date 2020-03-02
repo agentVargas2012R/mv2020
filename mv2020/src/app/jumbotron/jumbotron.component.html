@@ -14,7 +14,7 @@
               </h1>
               <p class="lead text-light font-italic {{align}}">{{subtitle}}</p>
               <div *ngIf="url">
-                <a target="_blank" href="{{url}}" mdbBtn color="white" outline="true" class="waves-light"   mdbWavesEffect>
+                <a target="_blank" (click)="sendEvent()" href="{{url}}" mdbBtn color="white" outline="true" class="waves-light"   mdbWavesEffect>
                   <i class="{{icon2}}"></i>  {{btnLabel}}
                 </a>
               </div>
