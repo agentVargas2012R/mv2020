@@ -3,6 +3,9 @@ export class Footer {
    poweredBy: string;
    company: string;
    year: Date = new Date();
+   views: string;
+   href: string;
+   imageSrc: string;
 
   public setCopyright(copyright: string){
     this.copyright = copyright;
@@ -27,4 +30,29 @@ export class Footer {
   public getCompany() {
     return this.company;
   }
+
+  public getViews() {
+    return this.views;
+  }
+
+  public setViews(view: string){
+    this.views = view;
+  }
+
+  public getHref() {
+    return this.href;
+  }
+
+  public setHref(href: string){
+    this.href = href;
+  }
+
+  public getImageSrc(){
+    this.imageSrc;
+  }
+
+  public setImageSrc(imageSrc: string){
+    this.imageSrc = imageSrc;
+  }
+
 }

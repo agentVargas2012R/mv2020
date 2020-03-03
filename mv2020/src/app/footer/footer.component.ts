@@ -23,6 +23,9 @@ export class FooterComponent implements OnInit {
     const formattedDate = formatDate(myDate, format, locale);
 
     this.footer.setCopyright("All Right Reserved ");
+    this.footer.setViews("Views: ");
+    this.footer.setHref("https://www.webfreecounter.com/");
+    this.footer.setImageSrc("https://www.webfreecounter.com/hit.php?id=guvkxnax&nd=6&style=31");
   }
 
 }
