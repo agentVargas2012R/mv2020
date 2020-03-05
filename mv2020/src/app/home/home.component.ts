@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   leads: any[];
   desktop: any[];
   aDarkNavbar: string = "navbar-light";
+  btnColor: string = "btn-outline-theme-light";
 
   constructor() {
       setTimeout(() => {

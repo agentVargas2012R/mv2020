@@ -1,4 +1,14 @@
 <!--Navbar-->
+<style scoped>
+  .dropdown-toggle:after {
+   display: none;
+  }
+
+  .navbar-nav {
+    padding-top: 5px !important;
+  }
+</style>
+
 <mdb-navbar  SideClass="navbar navbar-expand-lg {{darkNavBar}} scrolling-navbar">
   <mdb-navbar-brand>
     <a class="logo navbar-brand waves-light" mdbWavesEffect href="#"><strong>Who's This Guy?</strong></a>
@@ -31,16 +41,23 @@
         <a class="nav-link" title="View My Algorithms" target="blank" href="https://app.codesignal.com/profile/michael_e24">CodeSignal</a>
       </li>
 
-      <li class="dropdown-submenu">
-        <a class="test" tabindex="-1" href="#" title="View My Courses">Courses<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-           <li><a tabindex="-1" target="_blank" href="https://www.udemy.com/course/the-serverless-framework-with-aws-write-it-like-a-pro/learn/lecture/14515834#overview">The Serverless Framework</a></li>
-           <li><a tabindex="-1" target="_blank" href="https://www.udemy.com/course/angularjs-cookbook-recipes-for-common-scenarios/learn/lecture/3549212#overview">AngularJS Cookbook</a></li>		  
-           <li><a tabindex="-1" target="_blank" href="https://www.udemy.com/course/angularjs-write-it-like-a-pro/learn/lecture/3387752#overview">AngularJS: Write It Like A Pro</a></li>          
-        </ul>
-      </li>		      
+      <div class="dropdown" mdbDropdown>
+
+
+        <button mdbDropdownToggle mdbBtn color="none" size="sm" class="dropdown-toggle btn-outline-primary waves-light pad-top {{btnColor}}" type="button"
+          mdbWavesEffect>
+          Courses
+        </button>
+
+        <div class="dropdown-menu dropdown-primary">
+          <a class="dropdown-item" tabindex="-1" target="_blank" href="https://www.udemy.com/course/the-serverless-framework-with-aws-write-it-like-a-pro/learn/lecture/14515834#overview">The Serverless Framework</a>
+          <a class="dropdown-item" tabindex="-1" target="_blank" href="https://www.udemy.com/course/angularjs-cookbook-recipes-for-common-scenarios/learn/lecture/3549212#overview">AngularJS Cookbook</a>
+          <a class="dropdown-item" tabindex="-1" target="_blank" href="https://www.udemy.com/course/angularjs-write-it-like-a-pro/learn/lecture/3387752#overview">AngularJS: Write It Like A Pro</a>
+        </div>
+      </div>
+
     </ul>
-    
+
   </links>
 </mdb-navbar>
 <!-- Navbar -->

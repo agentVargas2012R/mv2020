@@ -10,6 +10,7 @@ export class NavigationLinksComponent implements OnInit {
   constructor() { }
 
   @Input() darkNavBar: string;
+  @Input() btnColor: string = "btn-outline-theme-dark";
 
   ngOnInit() {
 

@@ -1,0 +1,18 @@
+.btn-outline-theme-dark, .btn-outline-theme-dark:hover  {
+  border: 2px solid white!important;
+  background-color: transparent!important;
+  color: white!important;
+  border-radius: 5px;
+}
+
+.btn-outline-theme-light, .btn-outline-theme-light:hover  {
+  border: 2px solid #444!important;
+  background-color: transparent!important;
+  color:  #444 !important;
+  border-radius: 5px;
+}
+
+
+.pad-top {
+  padding-top: 5px;
+}
