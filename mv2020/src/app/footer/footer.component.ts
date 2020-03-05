@@ -26,6 +26,7 @@ export class FooterComponent implements OnInit {
     this.footer.setViews("Views: ");
     this.footer.setHref("https://www.webfreecounter.com/");
     this.footer.setImageSrc("https://www.webfreecounter.com/hit.php?id=guvkxnax&nd=6&style=31");
+    this.footer.setHomePage("#brands");
   }
 
 }

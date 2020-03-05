@@ -6,6 +6,7 @@ export class Footer {
    views: string;
    href: string;
    imageSrc: string;
+   homePage: string;
 
   public setCopyright(copyright: string){
     this.copyright = copyright;
@@ -55,4 +56,11 @@ export class Footer {
     this.imageSrc = imageSrc;
   }
 
+  public setHomePage(s: string){
+    this.homePage = s;
+  }
+
+  public getHomePage(){
+    return this.homePage;
+  }
 }
