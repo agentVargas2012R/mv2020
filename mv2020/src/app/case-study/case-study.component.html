@@ -1,5 +1,6 @@
 <head>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+
   <meta http-equiv="Cache-Control" content="max-age=3000, must-revalidate"/>
 
 </head>
@@ -30,6 +31,7 @@
 <div *ngFor="let caseStudy of caseStudyPanels" class="row  animated fadeIn  {{caseStudy.animation}}" style="border-bottom: solid 1px #DDD">
   <div class="col-md-5 text-center my-md-5 bigFont  {{caseStudy.fontColor}}">
     {{caseStudy.heading}} <i class="{{caseStudy.icon}}"></i>
+    <i class="{{caseStudy.icon2}}"></i>
   </div>
   <div class="col-md-7 text-left dark">
     <hr class="sidebar float-left">

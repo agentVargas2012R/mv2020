@@ -1,1 +1,17 @@
+.showBackdrop {
+  background: #444;
+  z-index: 99;
+}
 
+.default {
+  background: white;
+}
+
+
+@media screen and (orientation: portrait)  and (max-width: 1024px)  and (min-width: 768px) {
+
+}
+
+@media screen and (orientation: landscape)  and (max-width: 1024px)  and (min-width: 768px) {
+
+}

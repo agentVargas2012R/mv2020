@@ -1,3 +1,7 @@
+body, h1, h2, h3, h4, h5, h5, p, div, span, ul, li, a {
+  font-family: 'Raleway', open-sans;
+}
+
 .hire-navbar {
   background: linear-gradient(45deg, #01579B, #002f6C);
 }
@@ -11,7 +15,9 @@
 }
 
 .jumbotron-bg-red {
-  background: linear-gradient(45deg,#A82626, #B84D4D);
+  /*background: linear-gradient(45deg,#A82626, #B84D4D);*/
+  background-image: url("../../assets/images/dims.jpg");
+  background-size: cover;
 }
 
 .padding-top {
@@ -134,11 +140,11 @@
   }
 
   .display-4 {
-    font-size: 1rem
+    font-size: 2rem
   }
 
   .lead {
-    font-size: .75rem;
+    font-size: 1rem;
   }
 
   .col-md-4 {
@@ -165,17 +171,22 @@
   }
 
   .display-4 {
-    font-size: 1rem
+    font-size: 2rem
   }
 
   .lead {
-    font-size: .75rem;
+    font-size: 1rem;
   }
 
   .col-md-4 {
     flex: 0 0 66.33%;
     max-width: 100%;
   }
+
+  .my-md-5 {
+    margin-top: 0rem !important;
+  }
+
 }
 
 /* iPad */
@@ -226,6 +237,7 @@
 
   .landscape-md-3 {
     width: 33%;
+    padding-left:5%;
   }
 
   .col-md-4 {
@@ -234,4 +246,29 @@
   }
 
 
+  @media screen and (orientation: portrait)  and (min-width: 1366px) and (max-width: 1024px) {
+
+    .avatar {
+      width: 300px;
+      height: 300px;
+      object-fit:cover;
+      border-radius:50%;
+    }
+
+    .landscape-md-6 {
+      width: 66%;
+    }
+
+    .landscape-md-3 {
+      width: 33%;
+      padding-left:5%;
+    }
+
+    .col-md-4 {
+      flex: 0 0 66.33%;
+      max-width: 100%;
+    }
+
+
+  }
 }

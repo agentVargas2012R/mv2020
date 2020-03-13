@@ -1,3 +1,7 @@
+body, h1, h2, h3, h4, h5, h5, p, div, span, ul, li, a {
+  font-family: 'Raleway', open-sans;
+}
+
 body {
   color: black;
 }
@@ -54,6 +58,13 @@ body {
   header {
     height: 80%;
   }
+
+  .backdrop {
+    background:  linear-gradient(white, white);
+    border-radius: 5px;
+    padding: 2%;
+  }
+
 }
 
 /*iPad Pro*/
@@ -113,9 +124,14 @@ h5 {
 
 @media screen and (min-width: 300px) and (max-width: 767px)  and (orientation: portrait)  {
   #title {
-    color: white;
+    color: black;
   }
 
+  .backdrop {
+    background:  linear-gradient(white, white);
+    border-radius: 5px;
+    padding: 2%;
+  }
 
   .full-height,
   .full-height body,
@@ -133,7 +149,7 @@ h5 {
   }
 
   .description {
-    color: white;
+    color: black;
   }
 
   .padding-top-25 {

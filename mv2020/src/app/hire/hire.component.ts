@@ -5,6 +5,8 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import am4themes_spiritedaway from "@amcharts/amcharts4/themes/material";
 import {ForceDirectedTree, ForceDirectedSeries} from "@amcharts/amcharts4/plugins/forceDirected";
 import {AnalyticsService} from "../analytics.service";
+import { INg2LoadingSpinnerConfig } from 'ng2-loading-spinner';
+import { ANIMATION_TYPES } from 'ng2-loading-spinner';
 
 //am4core.useTheme(am4themes_animated);
 
@@ -38,6 +40,24 @@ export class HireComponent implements OnInit {
   private credentialsChart: am4charts.SlicedChart;
 
   showSpinner: boolean = true;
+  overlay: string = "showBackdrop";
+  hide: boolean = true;
+
+  loadingConfig: INg2LoadingSpinnerConfig = {
+    spinnerPosition: 'center',
+    backdropColor: '#444',
+    spinnerSize: 'md',
+    spinnerFontSize: '2rem'
+
+};
+
+loadingConfig2: INg2LoadingSpinnerConfig = {
+  animationType  : ANIMATION_TYPES.scalingBars,
+  spinnerPosition: 'center',
+  spinnerSize: 'md',
+  spinnerFontSize: '2rem'
+
+};
 
   navbarStyle: string;
 
@@ -58,17 +78,19 @@ export class HireComponent implements OnInit {
   constructor(private zone: NgZone) {
       setTimeout(() => {
         this.showSpinner = false;
+        this.overlay = "default";
+        this.hide = false;
       }, 5000);
 
       this.analyticsService = new AnalyticsService();
    }
 
   ngOnInit() {
-    this.theTitle = "Here's What I Can Do For You";
+    this.theTitle = "My Skills & Experience";
     this.theSubtitle = "Consulting For Leadership. Strategy For Development. Founded On Best Practice Architecture.";
     this.theUrl = "https://docs.google.com/document/d/1-5PsEiavUBqz2TF6rWrpi-53N0w7jd5lSOA2QZ9ARA0/view?usp=sharing";
-    this.theLeft = "col-lg-3 col-md-3 landscape-md-3 my-md-5";
-    this.theRight = "col-lg-6 col-md-4 landscape-md-6 my-md-5";
+    this.theLeft = "col-lg-5 col-md-5 landscape-md-3 my-md-5";
+    this.theRight = "col-lg-6 col-md-7 landscape-md-6 my-md-5";
     this.theBtnLabel = "My Resume";
     this.theProfile = "../../assets/images/profile.jpg"
     this.navbarStyle = "hire-navbar";

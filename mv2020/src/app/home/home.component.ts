@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
     this.subtitle = "";
 
     this.leads = [
-      "An architect, app developer and traveler living in the Miami, FL area.",
+      "An architect, app developer and traveler living in the South Florida area.",
       "My days are filled with creating enterprise applications for my clients and company, Intellipoint, while focusing mainly on Full-Stack development in the cloud."
     ];
 
